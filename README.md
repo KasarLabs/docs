@@ -11,5 +11,5 @@ Welcome to the KasarLabs Documentation Hub, our one-stop resource for documentat
 
 [Linkedin](https://www.linkedin.com/company/kasarlabs/?viewAsMember=true)
 
-[Telegram] (https://t.me/kasarlabs)
+[Telegram](https://t.me/kasarlabs)
 
