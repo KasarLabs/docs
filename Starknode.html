@@ -71,11 +71,16 @@
             </div>
 		    <nav id="docs-nav" class="docs-nav navbar">
 			    <ul class="section-items list-unstyled nav flex-column pb-3">
-				    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Starknode</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#Introduction">Introduction</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#Prerequisites">Prerequisites</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#Architecture">Architecture</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#Setup-Deoxys">Setup Deoxys</a></li>
+                    <li class="nav-item section-title">
+                        <span class="theme-icon-holder me-2">
+                            <img src="https://i.ibb.co/zHqhzSF/logo-eau.png" alt="logo-eau" style="border: none; width: 30px;">
+                        </span>
+                        <a class="nav-link scrollto active" href="#section-1">Starknode</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#user-guide">User guide</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#requirements">Requirements</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#kasar-gui">Install Kasar GUI</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#StarknodeSetup">Setup your Starknode</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Configuration">Configuration</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#Starknet">Starknet</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#Contribute">Contribute</a></li>
@@ -94,52 +99,220 @@
 					    <h1 class="docs-heading">Starknode <span class="docs-time">Last updated: 2019-06-01</span></h1>
 					    <section class="docs-intro">
 						</section><!--//docs-intro-->
-						
-						<h5>Github Code Example:</h5>
-						<p>You can <a class="theme-link" href="https://gist.github.com/"  target="_blank">embed your code snippets using Github gists</a></p>
-						<div class="docs-code-block">
-							<!-- ** Embed github code starts ** -->
-							<script src="https://gist.github.com/xriley/fce6cf71edfd2dadc7919eb9c98f3f17.js"></script>
-							<!-- ** Embed github code ends ** -->
-						</div><!--//docs-code-block-->
-						
-					     <h5>Highlight.js Example:</h5>
-						<div class="docs-code-block">
-							<pre class="shadow-lg rounded"><code class="json hljs">[
-  {
-    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"apples"</span>,
-    <span class="hljs-attr">"count"</span>: [<span class="hljs-number">12000</span>, <span class="hljs-number">20000</span>],
-    <span class="hljs-attr">"description"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"..."</span>, <span class="hljs-attr">"sensitive"</span>: <span class="hljs-literal">false</span>}
-  },
-  {
-    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"oranges"</span>,
-    <span class="hljs-attr">"count"</span>: [<span class="hljs-number">17500</span>, <span class="hljs-literal">null</span>],
-    <span class="hljs-attr">"description"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"..."</span>, <span class="hljs-attr">"sensitive"</span>: <span class="hljs-literal">false</span>}
-  }
-]
+				
+
+                        <section class="docs-section" id="user-guide">
+                            <h2 class="section-heading">User guide</h2>
+
+                        <p>Welcome to the Starknode Plug'n'Play documentation! This guide explains the step-by-step process of setting up your very own <a href="YOUR_WEBSITE_URL_HERE">Starknet</a> full node and interacting with the graphical user interface</p>
+                        <p>If you encounter any problems with your setup, please contact our support on <a href="https://t.me/kasarlabs">Telegram</a>.</p>
+                    </section><!--//section-->
+
+			
+					<section class="docs-section" id="requirements">
+						<h2 class="section-heading">Requirements</h2>
+
+						<p>In this documentation, we assume that you have purchased and received your Plug'n'Play full node. If not, you can get oneIn this documentation, we assume that you have purchased and received your Plug'n'Play full node. If not, you can get one <a href="https://kasar.io/starknode">here</a>. Stay tuned to our Telegram channel and Twitter to keep up with the latest announcements. Once you have received your node, first check if you meet the following requirements to ensure a successful setup:</p>
+                        
+                        <br>
+                        <h3>What you will receive:</h3>
+                        <ul>
+                            <li>The Mew1.0 mini-computer</li>
+                            <li>An Ethernet cable</li>
+                            <li>A 256GB or 512GB SD card (depending on your purchase)</li>
+                            <li>A microSD adapter</li>
+                            <li>A micro-USB power cable</li>
+                        </ul>
+
+                        <h3>What you should already have:</h3>
+                        <ul>
+                            <li>A personal computer to setup and configure your node</li>
+                            <li>A Starknet wallet address</li>
+                            <li>An Ethereum L1 key (<a href="https://www.alchemy.com/">How to get your Ethereum RPC url</a>)👇</li>
+                            <h1>ADD RPC video KEY Here</h1>
+                        </ul>
+
+                        <section class="docs-section" id="kasar-gui">
+                            <h2 class="section-heading">Install Kasar GUI</h2>
+
+                            <h3>Linux</h3>
+                            <p>You can download the binaries for your Linux distribution <a href="link for linux">here</a>.</p>
+                            <br>
+
+                            <h3>Windows</h3>
+                            <p>You can download the binaries for Windows distribution <a href="#" download>here</a>. Please unzip the folder, navigate to <code>win-unpacked</code>, and double-click on <strong>kasarlabs.exe</strong> to run it.</p>
+                            <br>
+
+                            <h3>MacOS</h3>
+                            <p>You can download the binaries for MacOS <a href=""download for max">here</a>. Then follow these instructions:</p>
+                            <ol>
+                                <li>After downloading the file, unzip the folder. Open it and double click on 'kasarlabs_1.1.3.dmg'. Then drag and drop the icon into the 'Applications' folder.</li>
+                                <img src="https://i.ibb.co/dpZjtH9/Screenshot-2023-09-08-at-13-37-57.png" alt="Screenshot-2023-09-08-at-13-37-57" border="0" width="30%">
+                                <br>
+                                <br>
+
+                                <li>Open Finder and double-click on the Kasarlabs app.</li>
+                                <img src="https://i.ibb.co/vHwrNLp/Finder-Kasarlabs.png" alt="Finder-Kasarlabs" border="0" width="30%"></a>
+                                <br>
+                                <br>
+
+                                <li>You should see this warning. Click on 'Cancel'</li>
+                                <img src="https://i.ibb.co/b7cBJPH/Warning-message.png" alt="Warning-message" border="0" width="30%"></a>
+                                <br>
+                                <br>
+
+                                <li>Open iTerm</li>
+                                <img src="https://i.ibb.co/wRd1P1c/iTerm.png" alt="iTerm" border="0" width="15%"></a>
+                                <br>
+                                <br>
+
+                                <li>Write the following line: <code>cd ../../Applications</code> and click 'enter</li>
+                                <img src="https://i.ibb.co/D1brDHk/terminal-starknode.png" alt="terminal-starknode" border="0" width="30%"></a>
+                                <br>
+                                <br>
+
+                                <li>Write the following line: <code>xattr -c kasarlabs.app</code> and click 'enter'</li>
+                                <img src="https://i.ibb.co/D1brDHk/terminal-starknode.png" alt="terminal-starknode" border="0" width="30%"></a>
+                                <br>
+                                <br>
+
+                                <li>Exit your finder folder and reopen it. Open the kasarlabs app in Application. And now it works!</li>
+                            </ol>
+                            
+
+                    </section><!--//section-->
 
 
-</code></pre>
-						</div><!--//docs-code-block-->
-						
-						
-				    </header>
-					
+						<section class="docs-section" id="StarknodeSetup">
+							<h2 class="section-heading">Setup your Starknode</h2>
+                            <h1>Embded VIDEO of setup HERE</h1>
+                            <br>
+                            <br>
+                            <h3>1. Install the KasarOS on your personal computer</h3>
+                                <p>(Click <a href="https://docs.kasar.io/setup-and-manage/install-kasargui">here</a>for a detailed installation process)</p>
 
-					<section class="docs-section" id="Introduction">
-						<h2 class="section-heading">Introduction</h2>
-						<p>Deoxys is a Starknet full node client implementation based on Substrate and powered by Rust. It unlocks the full potential of full nodes on Starknet.</p>
-					</section><!--//section-->
+                            <ol>
+                                <li>Install KasarGui for Windows</li>
+                                <li>Install KasarGUI for Mac</li>
+                                <li>Install KasarGui for Linux</li>
+                            </ol>
+                            <br>
 
-						<br>
-						<h2>Welcome to Deoxys</h2>
-						<p>As we usher in the era of the decentralized web, the role of advanced blockchain technology has become increasingly critical. Starknet, a decentralized, permissionless, and scalable ZK-Rollup, represents a significant step forward in this field. It has proven itself as a hero in the L2 war and significantly stands out today. But every hero needs a trusted companion, and for Starknet, this ally emerges as Deoxys. Built on the robust Substrate framework and powered by the reliable might of Rust, Deoxys is the most powerful Starknet full node implementation.
-						In this documentation, we will learn more about its architecture, its attributes, its specifics, and of course, how to launch your own Deoxys and benefit from its powers. But before we dive into that, I would like to say a few words about the technical prerequisites related to full nodes on Starknet and the tools that we are going to use.</p>
+                            <h3>2. Sign-up to the KasarOS</h3>
+                            <p>Create an account on the KasarOS and confirm your registration with a 'noreply' email we will send you</p>
+                            <br>
 
-						<section class="docs-section" id="Prerequisites">
-							<h2 class="section-heading">Prerequisites</h2>
-							<p>Deoxys is a Starknet full node client implementation based on Substrate and powered by Rust. It unlocks the full potential of full nodes on Starknet.</p>
+                            <h3>3. Login to the KasarOS</h3>
+                            <p>Login with the credentials you used to create your account</p>
+                            <br>
+                            <div style="display: inline-block; width: 350px; text-align: center;">
+                                <img src="https://i.ibb.co/QfQb34d/Screenshot-2023-06-12-at-17-36-46.png" alt="Screenshot-2023-06-12-at-17-36-46" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                <div style="margin-top: 5px;">Log into Kasar</div>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <h3>4. Connect your MicroSD card to your personal computer</h3>
+                            <br>
+                            <p>Next, insert your MicroSD card into the micro-USB flasher and wait a small moment for the SD card to pop up on your screen. Double-click on the SD card and select it in the Kasar interface. Your client of choice will be stored in this card.</p>
+                            <div style="display: inline-block; width: 350px; text-align: center;">
+                                    <img src="https://i.ibb.co/6bLJ4k7/Kasar-GUI-2.gif" alt="Kasar-GUI-2" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <div style="margin-top: 5px;">Connecting the MicroSD card to your personal computer</div>
+                            </div>
+                            
+                            
+                            <div class="callout-block callout-block-warning">
+                                <div class="content">
+                                    <h4 class="callout-title">
+                                        <span class="callout-icon-holder me-1">
+                                            <i class="fas fa-bullhorn"></i>
+                                        </span><!--//icon-holder-->
+                                        Warning
+                                    </h4>
+                                    <p>Please do not reformat your SD card if you are using Windows. If you accidentally reformatted, follow <a href="XYZ"> this tutorial</a> to reset your card.</p>
+                                </div><!--//content-->
+                            </div><!--//callout-block-->
+                            <br>
+                            <br>
+
+                            <h3>5. Configure your Starknode</h3>
+                            <br>
+                            <ol>
+                                <li>Pick a name for your Starknode.</li>
+                                <li>Then, select a client from the available options. We advice to use Juno for 246Go SD cards and Pathfinder for 512Go SD cards.</li>
+                                <li>Insert your Ethereum RPC url (which you can get on Alchemy, by following this <a href="XYZ">tutorial</a>. Infura is also a good option.</li>
+                                <li>Last, add a valid Starknet wallet address (<a href="https://www.argent.xyz/argent-x/">Argent</a> or <a href="https://braavos.app/"> Braavos</a>).</li>
+                            </ol>
+                            <div style="display: inline-block; width: 350px; text-align: center;">
+                                    <img src="https://i.ibb.co/KmM52jc/Kasar-GUI-3.gif" alt="Kasar-GUI-3" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <div style="margin-top: 5px;">Configure your Starknode</div>
+                            </div>
+                             <br>
+                             <br>
+                            <br>
+                            <h3>6. Loading...</h3>
+                            <br>
+                            <p>Your Starknode will now take a couple of seconds to setup.</p>
+                            <div style="display: inline-block; width: 350px; text-align: center;">
+                                <a href="https://imgbb.com/">
+                                    <img src="https://i.ibb.co/DzzbQZp/Kasar-GUI-5.webp" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <div style="margin-top: 5px;">Setting up your Starknode</div>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <h3>7. Time to Plug'n'Play</h3>
+                            <br>
+                            <p>Congratulations! You just configured your MicroSD card with your client of choice. Hold on tight, we're almost done! Grab your Starknode and insert your newly configured MicroSD card into the device. Connect the Starknode to an Ethernet access point (i.g., your Wifi router or directly into your wall), and to a power source</p>
+                        
+                            
+                            <div class="callout-block callout-block-success">
+                                <div class="content">
+                                    <h4 class="callout-title">
+                                        <span class="callout-icon-holder me-1">
+                                            <i class="fas fa-thumbs-up"></i>
+                                        </span><!--//icon-holder-->
+                                        Tip
+                                    </h4>
+                                    <p>Plug your Starknode to a reliable Ethernet and power source. Plugging it into your PC for power will not provide enough power. For best performance, look for a power and Ethernet wall socket. </p>
+                                </div><!--//content-->
+                            </div><!--//callout-block-->
+                            <br>
+                            <div style="display: inline-block; width: 350px; text-align: center;">
+                                    <img src="https://i.ibb.co/WyZJX7J/Kasar-GUI-5.gif" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <div style="margin-top: 5px;">Insert your MicroSD card in the back of your device. Plug your Starknode to a reliable Ethernet and power source</div>
+                            </div>
+                            <br>
+                            <br>
+                            <h3>8. Detecting your Starknode</h3>
+                            <br>
+                            <p>Once everything is plugged into your device, click on 'Wext' and wait for your node to be detected by your network. Please do not unplug your Starknode during this process. You can close the KasarGUI and open the Kasar App to look at the stats of your node: <a href="https://app.kasar.io/">https://app.kasar.io/</a>.</p>
+                            <div class="callout-block callout-block-success">
+                                <div class="content">
+                                    <h4 class="callout-title">
+                                        <span class="callout-icon-holder me-1">
+                                            <i class="fas fa-thumbs-up"></i>
+                                        </span><!--//icon-holder-->
+                                        Tip
+                                    </h4>
+                                    <p> Your Starknode will pass multiple steps. If after 5 mins it did not pass first step please unplug and replug the power cable. If after 2-5 tries it still doesnt pass first step please contact us on <a href="https://t.me/kasarlabs">Telegram</a>.</p>
+                                </div><!--//content-->
+                            </div><!--//callout-block-->
+
+                            <br>
+                            <br>
+                            <h3>9. Ready to roll!</h3>
+                            <br>
+                            <p>If you made this far, congrats! You just successfully set up and configured yout very own Starknet full node. On on KasarGUI, click on 'Track' to open the Kasar App to see the live performance of your Starknode.</p>
+                            
 						</section><!--//section-->
+
+
+                        
 
 
 						<br>
@@ -173,7 +346,7 @@
 						<p>Given these benefits, Rust is well-suited for implementing a Starknet full node. It allows Deoxys to achieve high performance and reliability, while its strong memory safety guarantees help ensure the node operates as expected. Moreover, Rust's advanced concurrency features enable Deoxys to efficiently process multiple transactions and requests concurrently, enhancing its ability to manage the Starknet state.</p>
 						</p>
 						</p>
-						<section id="architecture"></section>
+                        <section id="architecture"></section>
 
 						<section class="docs-section" id="Architecture">
 							<h2 class="section-heading">Architecture</h2>

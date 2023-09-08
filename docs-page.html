@@ -74,7 +74,13 @@
             </div>
 		    <nav id="docs-nav" class="docs-nav navbar">
 			    <ul class="section-items list-unstyled nav flex-column pb-3">
-				    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Deoxys</a></li>
+				    <li class="nav-item section-title">
+						<span class="theme-icon-holder me-2">
+							<img src="https://i.ibb.co/FmpgCpJ/Deoxys-circle-logo.png" alt="Deoxys-circle-logo" width="30" style="margin-bottom: 2px;"> <!-- Adjust the margin-bottom value as necessary -->
+						</span>
+						Deoxys
+					</li>
+					
 					<li class="nav-item"><a class="nav-link scrollto" href="#Introduction">Introduction</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Prerequisites">Prerequisites</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Architecture">Architecture</a></li>
@@ -298,12 +304,16 @@
 								<h3>2. Run your own node</h3>
 								<p>Fetch the code from the Official Deoxys repository in the folder of your choice.</p>
 								<div class="docs-code-block">
-									<pre class="shadow-lg rounded"><code>cd &lt;your-folder&gt;
-							git clone https://github.com/KasarLabs/deoxys</code></pre>
-								</div>
+									<pre class="shadow-lg rounded"><code class="bash hljs">
+<span class="hljs-attr">cd</span> &lt;<span class="hljs-string">your-folder</span>&gt;
+<span class="hljs-attr">git clone</span> <span class="hljs-string">https://github.com/KasarLabs/deoxys</span>
+									</code></pre>
+								</div><!--//docs-code-block-->
+								
 								<p>Single-Node Development Chain. This command will start the Deoxys client which will begin the synchronization with the Starknet network automatically:</p>
 								<pre><code>cargo run --release -- --dev --sealing=manual</code></pre>
 							</li>
+							
 							
 							<li class="step">
 								<h3>3. Create your peer to peer network</h3>
