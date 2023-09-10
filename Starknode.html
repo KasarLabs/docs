@@ -81,12 +81,12 @@
 					<li class="nav-item"><a class="nav-link scrollto" href="#requirements">Requirements</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#kasar-gui">Install Kasar GUI</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#StarknodeSetup">Setup your Starknode</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#Configuration">Configuration</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#Starknet">Starknet</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#Contribute">Contribute</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#FAQ">FAQ</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#Starknode">Starknode</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#Ecosystem">Ecosystem</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#ManageYourStarknode">Manage your Starknode</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#Tracking">Tracking</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#QueryStarknet">Query Starknet (🚧)</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#GetState">Get State (🚧)</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#BackupSDcard">Backup your MicroSD card</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#SetupAndInstallation">Setup and installation</a></li>
 
 				    
 
@@ -308,12 +308,278 @@
                             <h3>9. Ready to roll!</h3>
                             <br>
                             <p>If you made this far, congrats! You just successfully set up and configured yout very own Starknet full node. On on KasarGUI, click on 'Track' to open the Kasar App to see the live performance of your Starknode.</p>
-                            
 						</section><!--//section-->
 
+                        <section class="docs-section" id="ManageYourStarknode">
+							<h2 class="section-heading">Manage your Starknode</h2>
+                            <br>
+                            <p>Once your Starknode is up and running, you may need to update it. Juno, Pathfinder and Papyrus have updates on a regular basis.</p>
 
+                            <h4><strong>1. Remove the MicroSD card from the Starknode and plug it into your PC</strong></h4>
+                            <p>Similar to the first steps of setting up your Starknode, please conenect your MicroSD card to your personal computer using the USB MicroSD flasher.</p>
+                            <br>
+
+                            <h4><strong>2. Detecting an update</strong></h4>
+                            <p>Wait a moment to see if an update of your client is available. If there is no available update, you can simply press 'Home' on the KasarOS. If an update is available, you can click on 'Update'.</p>
+                            <br>
+                            <h2>IS THERE EVEN AN UPDATE SECTION</h2>
+
+                        </section>
+                        
+                        <section class="docs-section" id="Tracking">
+							<h2 class="section-heading">Tracking</h2>
+                            <br>
+                            <p>Head to the KasarApp to track the performance of your node: <a href="https://app.kasar.io/">https://app.kasar.io/</a>.</p>
+                            <p>The three clients available on Starknet (namely Pathfinder, Juno, and Papyrus) have an integrated tracker, allowing the user to get the live performance data of their own Full Node. This data is displayed on the dashboard on. To access this dashboard, the user must connect their account to the application.
+                                The dashboard will display insightful information such as the Average storage usage, memory usage, Minimum sync time, Transaction roots, the Parent hash, and more.</p>
+                        </section>
+
+                        <section class="docs-section" id="QueryStarknet">
+							<h2 class="section-heading">Query Starknet (🚧)</h2>
+                            <br>
+                            <p><em>Coming soon (🚧)</em></p>
+                            <p>Your very own node allows you to get full access to the information of what is happening on the network. You can access the full Starknet state history, including contract code, storage, and transactions.
+                                For instance, you may want to track the number of transactions executed by a particular contract or monitor changes in the state of the blockchain over time.</p>
+                        </section>
+
+                        <section class="docs-section" id="GetState">
+							<h2 class="section-heading">Get State (🚧)</h2>
+                            <br>
+                            <p><em>Coming soon (🚧)</em></p>
+                            <p>You can use the Playground Starknet Node API, which is a web-based interface for interacting with the Starknet blockchain, to access a list of methods that can be used to communicate with the Starknet blockchain.
+                                You can explore the various methods available for interacting with contracts, deploying contracts, and querying the state of the blockchain. This information can be useful for developing smart contracts, testing blockchain interactions, and troubleshooting issues.</p>
+                            <br>
+                            <h1>Insert Starknet APIs here</h1>
+                            <br>
+
+                        </section>
+
+
+                        <section class="docs-section" id="BackupSDcard">
+							<h2 class="section-heading">Backup your MicroSD card</h2>
+                            <br>
+                            <p>Please refer to this guide for instructions on how to reformat your SD card. Be aware that this procedure should not be performed frequently. It's primarily intended for situations where the files on your SD card have been deleted, or if you're using an SD card that you've provided yourself, rather than one supplied by KasarLabs.</p>
+                            <br>
+                            <p>In this tutorial, you will learn how to accomplish the following tasks:</p>
+                            <ol>
+                                <li>Use the RasberryPi software to add our operating system to your SD card</li>
+                                <li>Connect the SD card to your7node, following the typical Starknode setup process</li>
+                                <li>Establish a connection between your PC and the Starknode</li>
+                                
+                                <br>
+                                <div style="display: inline-block; width: 350px; text-align: center;">
+                                        <img src="https://i.ibb.co/18mrpLN/image.png" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                    </a>
+                                    <div style="margin-top: 5px;">Select 'CHOOSE OS'</div>
+                                </div>
+                                <br>
+                                <br>
+                                <li>Select a custom Operating System and the 'kasar.img'</li>
+                                <br>
+                                <div style="display: inline-block; width: 350px; text-align: center;">
+                                    <img src="https://i.ibb.co/8rwgP5R/image.png" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <br>
+                                <div style="margin-top: 5px;">Scroll down and select 'Use custom'</div>
+                                </div>
+                                <br>
+                                <br>
+                                <div style="display: inline-block; width: 350px; text-align: center;">
+                                <img src="https://i.ibb.co/v37fzXk/image.png" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <div style="margin-top: 5px;">Select 'kasar.img'</div>
+                                </div>
+                                <br>
+                                <br>
+                                <li>Next, click on 'CHOOSE STORAGE', select the SD card and select 'write'</li>
+                                <br>
+                                <div style="display: inline-block; width: 350px; text-align: center;">
+                                    <img src="https://i.ibb.co/4VbFSVj/image1.png" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <div style="margin-top: 5px;">Select 'CHOOSE STORAGE'</div>
+                                </div>
+                                <br>
+                                <br>
+                                <div style="display: inline-block; width: 350px; text-align: center;">
+                                    <img src="https://i.ibb.co/X7pBDLV/image2.png" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <div style="margin-top: 5px;">Select the SD card storage option</div>
+                                </div>
+                                <br>
+                                <br>
+                                <div style="display: inline-block; width: 350px; text-align: center;">
+                                    <img src="https://i.ibb.co/bvTG0ZH/Screenshot-2023-07-14-at-12-02-56.png" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <div style="margin-top: 5px;">Once the Operating System and the Storage have been selected, click on 'WRITE'</div>
+                                </div>
+                                <br>
+                                <br>
+                                <div style="display: inline-block; width: 350px; text-align: center;">
+                                    <img src="https://i.ibb.co/T4Q4xVR/Screenshot-2023-07-14-at-12-03-14.png" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <div style="margin-top: 5px;">Click 'YES' on this pop-up message</div>
+                                </div>
+                                <br>
+                                <br>
+                                <div style="display: inline-block; width: 350px; text-align: center;">
+                                    <img src="https://i.ibb.co/FsqQWVN/Screenshot-2023-07-14-at-12-04-13.png" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <div style="margin-top: 5px;">Wait a couple of minutes</div>
+                                </div>
+                                <br>
+
+                                <li>After you have finished writing, please remove the SD card from your device and then insert it back into your PC. This step is necessary because Raspberry Pi Imager will automatically eject the card once the writing process is complete</li>
+
+                                <br>
+                                <div style="display: inline-block; width: 350px; text-align: center;">
+                                    <img src="https://i.ibb.co/ydKcPhm/image4.png" alt="Kasar-GUI-5" style="border: none; width: 100px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                </a>
+                                <br>
+                                <br>
+                                <div style="margin-top: 5px;">Your SD card should now be renamed to 'boot'</div>
+                                </div>
+                                <br> 
+                                <br>
+                                <p>Launch the KasarGUI. <a href="#StarknodeSetup">Follow our tutorial:</a></p>
+
+                                <li>Choose to 'Setup my Starknode, Login or Sign-up and, select the micro SD card</li>
+                                <li>Next, safely eject the card, insert it into your node and, plug your node to an electrical outlet and Ethernet</li>
+                                <li>Once your Starknode is on, you can use the <a href="https://angryip.org/">'angryAPI'</a> scanner, available for Windows, Mac and Linus. This software is used to find the local IP of your Starknode.</li>
+                                <li>In angryBirdIp, Press 'Start'. Once the scanning is complete (it should take approximately 10s to 20s), click on the 'Hostname' column and select 'Sort by Hostname'</li>
+                                <li>Find your device, it should have the following name 'rasberrypi.local'</li>
+
+                                <br>
+                                <div class="callout-block callout-block-success">
+                                    <div class="content">
+                                        <h4 class="callout-title">
+                                            <span class="callout-icon-holder me-1">
+                                                <i class="fas fa-thumbs-up"></i>
+                                            </span><!--//icon-holder-->
+                                            Tip
+                                        </h4>
+                                        <p>Please note, your device may not always have an assigned name, for instance, it could show as 'n/a' instead of 'raspberrypi.local'. If this happens, identify all the IP addresses marked with a blue dot and proceed with step 6 and the following steps using these IP addresses. In summary, you can confirm a successful connection to your Starknode when, on MacOS or Linux, your terminal responds to the command <code>ssh starknode@ip_address</code>. On Windows, add the IP Address to ''Host Name (or IP address)'</p>
+                                    </div><!--//content-->
+                                </div><!--//callout-block-->
+
+                                <li>Copy and paste the IP address of the device, located on the first column called 'IP'</li>
+                                <li>Connect your Starknode through SSH</li>
+
+
+
+
+                                <!--PUSH HERE FOR UPDATED MARGIN-->
+
+                                
+                                <head>
+                                    <meta charset="UTF-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                    <title>Indented Instructions</title>
+                                    <style>
+                                        #instructionContainer {
+                                            margin-left: 50px;
+                                        }
+                                    </style>
+                                </head>
+                                <body>
+                                
+                                <div id="instructionContainer">
+                                    <br>
+                                    <p>For <strong>MacOS</strong> and <strong>Linux</strong>:</p>
+                            
+                                    <ol>
+                                        <li>Next, open your terminal and execute the following command by changing 'your_ip_address' with the IP you just got from 'angryBirdIp': <code>ssh starknode@your_ip_address</code>. So for example, if my IP is 192.168.1.29, I will copy+paste the following command into my terminal: <code>ssh starknode@192.168.1.29</code></li>
+                                        <li>Input the following password: <code>!KasarOs</code></li>
+                                        <li>Once the process is finished, execute this command <code>sudo /boot/efi/src/run.sh</code></li>
+                                        <li>Now, your connection should be closed</li>
+                                        <li>Congrats! If you made it this far, you successfully reformatted your card, ran your node, and connected it to the internet ⚡️</li>
+                                    </ol>
+                                </div>
+                                </body>
+
+                                <head>
+                                    <meta charset="UTF-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                    <title>Indented Instructions for Windows</title>
+                                    <style>
+                                        #windowsInstructionContainer {
+                                            margin-left: 50px;
+                                        }
+                                    </style>
+                                </head>
+                                <body>
+                                
+                                <div id="windowsInstructionContainer">
+                                    <p>For Windows:</p>
+                                    <ol>
+                                        <li>Download <a href="https://www.putty.org/">'PuTTY'</a>, a free SSH and telnet client for Windows</li>
+                                        <li>Open PuTTY, head to 'Host Name (or IP address)', add the IP address from your node, and click on 'Open'</li>
+                                        <br>
+                                        <div style="display: inline-block; width: 350px; text-align: center;">
+                                            <img src="https://i.ibb.co/1XssThP/image5.png" alt="Kasar-GUI-5" style="border: none; width: 250px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                        </a>
+                                        <div style="margin-top: 5px;">PuTTY interface on Windows</div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <li>Next, input starknode,  next, the password (<strong>!KasarOs</strong>), and finally paste <code>sudo /boot/efi/src/run.sh</code> by right-clicking on the console</li>
+                                        <br>
+                                        <br>
+                                        <div style="display: inline-block; width: 350px; text-align: center;">
+                                            <img src="https://i.ibb.co/nMbqKtv/image6.png" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                        </a>
+                                        <div style="margin-top: 5px;">Console</div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <li>Press ENTER</li>
+                                        <lI>Congrats, if you made it this far you reformatted your card on Windows ⚡️</lI>
+                                    
+                                    </ol>
+                                </div>
+                                </body>
+                             </ol>
+                            </ol>
+                        </section>
                         
 
+                            <section class="docs-section" id="SetupAndInstallation">
+                                <h2 class="section-heading">Setup and installation</h2>
+                                
+                            </section><!--//section-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            
+
+
+
+
+
+
+
+                            <br>
+                            <p>Follow these steps to complete the tutorial successfully:</p>
+                            <ol>
+                                <li>Take your SD card and insert it into your PC</li>
+                                <li>Next, download 'Kasar.img' and the <a href="https://www.raspberrypi.com/software/">'rasberryPI'</a> imager (RasberryPi Imager is a software that configures your card with our OS)</li>
+                                <li>Open the RasberryPi Imager and click on 'CHOOSE OS'</li>
+                            </ol>
+                            <h1>Insert Starknet APIs here</h1>
+                            <br>
+
+                        </section>
 
 						<br>
 						<h3>Full Nodes</h4>
