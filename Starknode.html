@@ -86,7 +86,7 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#QueryStarknet">Query Starknet (🚧)</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#GetState">Get State (🚧)</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#BackupSDcard">Backup your MicroSD card</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#SetupAndInstallation">Setup and installation</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#FAQ">FAQ</a></li>
 
 				    
 
@@ -464,770 +464,141 @@
                                 <li>Copy and paste the IP address of the device, located on the first column called 'IP'</li>
                                 <li>Connect your Starknode through SSH</li>
 
-
-
-
-                                <!--PUSH HERE FOR UPDATED MARGIN-->
-
+                                <ol style="padding-left: 30px;">
+                                    <p>For <strong>MacOS</strong> and <strong>Linus</strong>:</p>
+                                    <li>Next, open your terminal and execute the following command by changing 'your_ip_address' with the IP you just got from 'angryBirdIp': ssh starknode@your_ip_address. <br>
+                                        <em>So for example, if my IP is 192.168.1.29, I will copy+paste the following command into my terminal: ssh starknode@192.168.1.29</em>
+                                    </li>
+                                    <li>Input the following password: !KasarOs</li>
+                                    <li>Once the process is finished, execute this command sudo /boot/efi/src/run.sh</li>
+                                    <li>Now, your connection should be closed</li>
+                                    <li>Congrats! If you made it this far, you successfully reformatted your card, ran your node, and connected it to the internet ⚡️</li>
+                                </ol>
                                 
-                                <head>
-                                    <meta charset="UTF-8">
-                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                    <title>Indented Instructions</title>
-                                    <style>
-                                        #instructionContainer {
-                                            margin-left: 50px;
-                                        }
-                                    </style>
-                                </head>
-                                <body>
-                                
-                                <div id="instructionContainer">
+
+                                <br>
+                                <br>
+                                <ol style="padding-left: 30px;">
+                                    <p>For <strong>Windows</strong></p>
+                                    <li>Download <a href="https://www.putty.org/">'PuTTY'</a>a free SSH and telnet client for Windows</li>
+                                    <li>Open PuTTY, head to 'Host Name (or IP address)', add the IP address from your node, and click on 'Open'</li>
                                     <br>
-                                    <p>For <strong>MacOS</strong> and <strong>Linux</strong>:</p>
-                            
-                                    <ol>
-                                        <li>Next, open your terminal and execute the following command by changing 'your_ip_address' with the IP you just got from 'angryBirdIp': <code>ssh starknode@your_ip_address</code>. So for example, if my IP is 192.168.1.29, I will copy+paste the following command into my terminal: <code>ssh starknode@192.168.1.29</code></li>
-                                        <li>Input the following password: <code>!KasarOs</code></li>
-                                        <li>Once the process is finished, execute this command <code>sudo /boot/efi/src/run.sh</code></li>
-                                        <li>Now, your connection should be closed</li>
-                                        <li>Congrats! If you made it this far, you successfully reformatted your card, ran your node, and connected it to the internet ⚡️</li>
-                                    </ol>
-                                </div>
-                                </body>
-
-                                <head>
-                                    <meta charset="UTF-8">
-                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                    <title>Indented Instructions for Windows</title>
-                                    <style>
-                                        #windowsInstructionContainer {
-                                            margin-left: 50px;
-                                        }
-                                    </style>
-                                </head>
-                                <body>
+                                    <div style="display: inline-block; width: 350px; text-align: center;">
+                                        <img src="https://i.ibb.co/5rrF5Vz/image7.png" alt="Kasar-GUI-5" style="border: none; width: 250px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                    </a>
+                                    <div style="margin-top: 5px;">PuTTY interface on Windows</div>
+                                    </div>
+                                    <br>
+                                    <li>Next, input starknode,  next, the password (!KasarOs), and finally paste sudo /boot/efi/src/run.sh by right-clicking on the console</li>
+                                    <br>
+                                    <div style="display: inline-block; width: 350px; text-align: center;">
+                                        <img src="https://i.ibb.co/DpTSMFq/image8.png" alt="Kasar-GUI-5" style="border: none; width: 250px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
+                                    </a>
+                                    <div style="margin-top: 5px;">Console</div>
+                                    </div>
+                                    <br>
+                                    <li>Press ENTER</li>
+                                    <li>Congrats, if you made it this far you reformatted your card on Windows ⚡️</li>
+                                </ol>
                                 
-                                <div id="windowsInstructionContainer">
-                                    <p>For Windows:</p>
-                                    <ol>
-                                        <li>Download <a href="https://www.putty.org/">'PuTTY'</a>, a free SSH and telnet client for Windows</li>
-                                        <li>Open PuTTY, head to 'Host Name (or IP address)', add the IP address from your node, and click on 'Open'</li>
-                                        <br>
-                                        <div style="display: inline-block; width: 350px; text-align: center;">
-                                            <img src="https://i.ibb.co/1XssThP/image5.png" alt="Kasar-GUI-5" style="border: none; width: 250px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
-                                        </a>
-                                        <div style="margin-top: 5px;">PuTTY interface on Windows</div>
-                                        </div>
-                                        <br>
-                                        <br>
-                                        <li>Next, input starknode,  next, the password (<strong>!KasarOs</strong>), and finally paste <code>sudo /boot/efi/src/run.sh</code> by right-clicking on the console</li>
-                                        <br>
-                                        <br>
-                                        <div style="display: inline-block; width: 350px; text-align: center;">
-                                            <img src="https://i.ibb.co/nMbqKtv/image6.png" alt="Kasar-GUI-5" style="border: none; width: 300px; box-shadow: 1px 1px 10px #888888; border-radius: 5px;">
-                                        </a>
-                                        <div style="margin-top: 5px;">Console</div>
-                                        </div>
-                                        <br>
-                                        <br>
-                                        <li>Press ENTER</li>
-                                        <lI>Congrats, if you made it this far you reformatted your card on Windows ⚡️</lI>
-                                    
-                                    </ol>
-                                </div>
-                                </body>
-                             </ol>
-                            </ol>
-                        </section>
                         
+                                <section class="docs-section" id="FAQ">
+                                <h2 class="section-heading">FAQ</h2>
 
-                            <section class="docs-section" id="SetupAndInstallation">
-                                <h2 class="section-heading">Setup and installation</h2>
+                                    <h3 class="section-heading">Setup and installation<small></small></h3>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How do I install the node? Is there a tutorial available?</h5>
+                                    <p>There is a video tutorial under the “Setup your Starknode” section of our documentation <h href="#StarknodeSetup">here</h>.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What hardware and operating system requirements are needed to install the KasarGUI?</h5>
+                                    <p>The KasarGUI can run on any computer with a Windows, Linux, or iOS operating system and an internet connection.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Is there a specific chain or network that should be chosen for the node?</h5>
+                                    <p>When setting up your Ethereum L1 key (e.g., with Alchemy), please select the Ethereum chain and the Ethereum Mainnet network.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How do I delete or reset a node that was already set up?</h5>
+                                    <p>In the Kasar app, there's an option to delete a node. However, it's important to understand that deleting a node doesn't halt its operation; it simply removes the node from your visible dashboard.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Is there a specific client recommended for the node setup?</h5>
+                                    <p>Selecting the client can depend on the storage size of your SD card. If you have a 256GB card you can opt for Juno, as the DB only weighs 31G, if you have a 512GB and you want to develop using the Starknode, you can opt for Pathfinder.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Do we need to download any specific app to install the node?</h5>
+                                    <p>Yes, in order to complete the Starknode installation, you have to install the Kasar application. Please find the link to the download in the documentation under the ”Install KasarGUI” section.</p>
+
+
+                                    <h3 class="section-heading">Sync and update<small></small></h3>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long does it take for the node to download the mainnet data?</h5>
+                                    <p>It can take up to 24 hours. However, this also depends on the number of nodes syncing with the sequencer.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Why does the syncing process take a long time?</h5>
+                                    <p>The syncing process is slowed down by all the nodes syncing from the same sequencer while the state is growing. This will be unlocked really soon with future updates.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Is it normal for the node to be stuck on a certain step (0%, 64%, unzip mainnet etc.)?</h5>
+                                    <p>It is typical for downloading mainnet to take some time and unzipping the mainnet will also require waiting for about 24 hours for Pathfinder and 1 hour for Juno, though this duration may vary depending on your internet connection. If your connection speed is slow, the download time for the mainnet could be longer.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to handle if a node has stopped syncing?</h5>
+                                    <p>It is normal there is a large number of full nodes wanting to sync all at once.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What happens if the node is unplugged during the syncing process?</h5>
+                                    <p>Your Starknode will keep syncing back from where it was left, even if you change the router.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can the node use other providers like Infura or Alchemy as an RPC?</h5>
+                                    <p>You can use Infura, blast, Chainstack, or any other RPC provider.</p>
+                                    <br>
+
+
+                                    <h3 class="section-heading">Storage and performance<small></small></h3>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How much storage is needed for the first sync and future syncs?</h5>
+                                    <p>For the first sync, Juno weighs 31G and Pathfinder 289G. Future syncs will depend on the growth of the network.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What happens when the blockchain becomes larger than the available storage?</h5>
+                                    <p>It will take some time until you reach 100% but whenever it's the case you should upgrade it or opt for a light client solution. If you look at Juno the entirety of their state is 31G against 289G for Pathfinder. Pathfinder will soon work on that. We are also working on Deoxys, our own client implementation at KasarLabs. This one will sync way faster because it integrates p2p and other performance optimizations.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Is the node consuming too much storage space (1% per day)?</h5>
+                                    <p>With the latest version of Juno and its snapshot, you will have significantly more available storage capacity.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to handle storage issues, like reformatting an SD card or using a new SD card?</h5>
+                                    <p>It is common for Windows to offer SD card reformatting. We ship the SD cards already flashed with our OS, so if you reformat it or decide to use another one, you will not have the Kasar OS installed. There is a step-by-step guide on how to reformat the Sd card in the documentation under the “Backup your SD card” section <a href="#BackupSDcard">here</a>.</p>
+                                    <br>
+
+
+                                    <h3 class="section-heading">Connectivity and hardware<small></small></h3>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What do the various LED light indicators mean?</h5>
+                                    <p>The node is considered to be functioning properly when specific lights are displayed. The power section of the node should have a steady red light and a blinking green light. In the Ethernet area, there should be a blinking green light and a blinking yellow light. If you do not observe these blinking lights, please disconnect and reconnect your Starknode. It is recommended to connect your Starknode directly to a wall outlet for the most reliable power source. If any of the lights do not meet the mentioned requirements, the node will not sync.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What happens if there's an Internet outage or if the node has to be unplugged?</h5>
+                                    <p>The syncing will stop at the last block and re-sync back from it when you plug it or get connected again.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Does the node need to be connected to the computer as well as the router?</h5>
+                                    <p>Only your router and power cable should be connected to your Starknode.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can any USB plug be used to power the device?</h5>
+                                    <p>Use the microUSB port to your Starknode. Please use a wall outlet for the best power source.</p>
+                                    <br>
+
+
+                                    <h3 class="section-heading">Functionality and utility<small></small></h3>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can the node be used to improve transaction speed?</h5>
+                                    <p>No, running a Starknode will not increase transaction speed.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Is it recommended to create a new wallet for the node?</h5>
+                                    <p>You can use any L2 wallet and create a new one just for the Starknode.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What is the role of the Starknet address during configuration?</h5>
+                                    <p>This is in the provision for any consensus protocol integration.</p>
+                                    <br>
+
+
+                                    <h3 class="section-heading">Purchase<small></small></h3>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Is it safe to purchase on secondary markets?</h5>
+                                    <p>There is no secondary market. It is not recommended to buy any Starknode elsewhere than <a href="https://kasar.io">https://kasar.io</a>.</p>
+
+
+                                    <h3 class="section-heading">Rewards and incentives<small></small></h3>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Will Starknet reward node runners?</h5>
+                                    <p>There is currently no consensus on Starknet announced by the Foundation, so running your Starknode will not currently deliver rewards.</p>
+                                    <br>
+
+
+                                    <h3 class="section-heading">Suppot and troubleshooting<small></small></h3>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to handle issues with specific steps during the node setup process?</h5>
+                                    <p>If you strictly follow each step during the node setup, you shouldn't encounter any problems. If you're stuck at the 'Node Created' stage, have you completed the SSH step? Please remember to read the entire documentation.</p>
+                                    <br>
+
+                                    <h3 class="section-heading">General<small></small></h3>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Are there any limitations or restrictions on running multiple nodes or devices from the same IP address?</h5>
+                                    <p>There is no limit to the number of nodes you can run on the same network. However, it is important to note that when multiple nodes are active, they may sync at a slower rate due to them all accessing a single sequencer.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How much electricity and data does the node consume?</h5>
+                                    <p>It depends on your country but It consumes a low amount of electricity, ranging from around 1.5 to 3.5 watts under normal usage conditions.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Should the node be running 24/7 or only when using the network?</h5>
+                                    <p>When you disconnect it, it will not sync so you need to sync before use in the live network, but you can disconnect and continue to sync where you stopped before you reconnect it.</p>
+                                    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>At what stage of the setup do I become a live full node?</h5>
+                                    <p>From the moment you are syncing, you become a Starknet full node. In other words, you do not need to be fully syncing to be a Starknet full node.</p>
+                                    <br>
                                 
-                            </section><!--//section-->
+                    </section><!--//section-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            
-
-
-
-
-
-
-
-                            <br>
-                            <p>Follow these steps to complete the tutorial successfully:</p>
-                            <ol>
-                                <li>Take your SD card and insert it into your PC</li>
-                                <li>Next, download 'Kasar.img' and the <a href="https://www.raspberrypi.com/software/">'rasberryPI'</a> imager (RasberryPi Imager is a software that configures your card with our OS)</li>
-                                <li>Open the RasberryPi Imager and click on 'CHOOSE OS'</li>
-                            </ol>
-                            <h1>Insert Starknet APIs here</h1>
-                            <br>
-
-                        </section>
-
-						<br>
-						<h3>Full Nodes</h4>
-						<p>Full nodes track the state of Starknet as it evolves over time and allow users and developers to query and change this state via <a href="https://github.com/starkware-libs/starknet-specs/blob/master/api/starknet_api_openrpc.json">Starknet's JSON RPC</a>. An important thing to note - full nodes don't change the state themselves. Currently, they forward the requests to the sequencer and pull state updates from it to reach the latest block.</p>
-						<p>Right now on Starknet we have different full-node implementations:</p>
-						<ul>
-							<li><a href = "https://github.com/eqlabs/pathfinder">Deoxys:</a> Rust/Substrate based</li>
-							<li><a href = "https://github.com/eqlabs/pathfinder">Pathfinder:</a> Rust based</li>
-							<li><a href = "https://github.com/nethermindeth/juno">Juno:</a> Golang based</li>
-							<li><a href = "https://github.com/starkware-libs/papyrus">Papyrus:</a> Rust based</li>
-						</ul>
-						<p>Full nodes are like guardians of the Starknet state, they track and store a record of it. Sequencers themselves have full nodes.</p>
-						
-						<h3>Substrate</h3>
-						<p><a href = "https://substrate.io/">Substrate</a> is a flexible, open-source framework developed by Parity Technologies for creating robust blockchains. It offers essential infrastructure through its Substrate Core and a range of pre-built modules via the Substrate Runtime Module Library (SRML).
-							By using Substrate, Deoxys is able to concentrate on building unique features of a StarkNet full node without having to create standard blockchain functions from the ground up. Substrate's modularity also allows easy network upgrades, changes, and the addition of new features. Furthermore, its extensibility ensures scalability and interoperability, both key aspects in the evolution of the Starknet ecosystem.</p>
-
-
-						<h3>Rust</h3>
-						<p>is a systems programming language that emphasizes safety, speed, and concurrency. It is known for its powerful type system, memory safety guarantees, and minimal runtime. Rust's design prevents many common programming errors, like null pointer dereferencing and data races, which makes it an ideal choice for building reliable, high-performance systems.
-						<p>In the context of Deoxys, Rust provides a number of benefits:
-							<ul>
-								<li><strong>Memory Safety:</strong> Rust's ownership model guarantees memory safety without needing a garbage collector, which can be a bottleneck in high-performance systems.</li>
-								<li><strong>Concurrency:</strong> Rust has first-class support for concurrent and distributed systems, making it perfect for a distributed, concurrent environment like a blockchain.</li>
-								<li><strong>Interoperability:</strong> Rust has excellent interoperability with other languages, which can be useful in a multi-language, open-source project.</li>
-								<li><strong>Performance:</strong> Rust is designed to perform nearly as well as C++, making it suitable for a high-throughput system like a blockchain network.</li>
-								<li><strong>Community and Ecosystem:</strong> Rust has a strong and growing community of developers, and its package ecosystem, Crates.io, provides a wealth of libraries that can help speed up the development process.</li>
-							</ul>
-							
-						<p>Given these benefits, Rust is well-suited for implementing a Starknet full node. It allows Deoxys to achieve high performance and reliability, while its strong memory safety guarantees help ensure the node operates as expected. Moreover, Rust's advanced concurrency features enable Deoxys to efficiently process multiple transactions and requests concurrently, enhancing its ability to manage the Starknet state.</p>
-						</p>
-						</p>
-                        <section id="architecture"></section>
-
-						<section class="docs-section" id="Architecture">
-							<h2 class="section-heading">Architecture</h2>
-							<h3>Global Operation</p>
-						</section><!--//section-->
-						<br>
-						<p>Here's a straightforward schematic representation of Deoxys, showcasing its dual role as a guardian of the Starknet state and its peer-to-peer state communication functionality. This feature reduces the reliance on requests to the sequencer and minimizes interactions between full node clients and the Starknet network sequencer.</p>
-						<p><strong>IMAGE OF DEOXYS ARCHITECTURE HEEEEEEEREEEEE</strong></p>
-
-						<p><strong>Step 1: </strong>Synchronizing the Deoxys Boot-node with Starknet's current state</p>
-						<p>The initial stage of the process involves running a Deoxys boot-node with AUTHORITY status, establishing direct communication with the sequencer gateway. This gateway continuously retrieves blocks starting from the genesis block and stores subsequent states in its database. Once it reaches the latest block issued by the sequencer, it can efficiently query the sequencer as new blocks are produced.</p>
-
-						<p><strong>Step 2: </strong>Cross-chain verification</p>
-						<p>The validity of the blocks received is checked by means of a cross-chain verification on the Ethereum chain. This ensures that network nodes are not subsequently informed of a false status (in progress).</p>
-
-						<p><strong>Step 3: </strong>P2p synchronization of Deoxys nodes from the Deoxys Boot-node</p>
-						<p>Once a boot-node is operational and its ports are open, an unlimited number of Deoxys clients can be initiated. These clients function similarly to the boot-node but with a distinction that they no longer communicate with the sequencer. Instead, they solely interact with one another. Each client continuously acquires the state by requesting it from its peers while also responding to queries from other nodes within the network.</p>
-
-						<br>
-						<br>
-						<H4>The Deoxys Runtime</H4>
-						<br>
-						<H5><strong>1) The Starknet pallet</strong></H5>
-					
-						<p>The core component of Deoxys is the <code>starknet</code> pallet. It provides a Starknet compatibility layer for Substrate.
-
-							This pallet, in addition to the <strong>RPC</strong> module, validates starknet-encoded transactions and makes it possible to re-execute them and store the successive states.</p>
-						<br>
-						<H5><strong>2) Wrapper block strategy</strong></H5>
-						<p>You might be asking, how are we able to map Substrate blocks to Starknet blocks ?
-							Well we use the <a href = "https://corepaper.org/substrate/wrapper/">wrapper block</a> method first used by Parity in frontier, the EVM compatibility layer for Substrate.</p>
-
-                        <div class="callout-block callout-block-info">
-                            <div class="content">
-                                <p>"Wrapper block is a strategy in Substrate to allow it processing blocks that were not originally designed with Substrate in mind."</p>
-                            </div><!--//content-->
-                        </div><!--//callout-block-->
-						<p>It does add a slight performance overhead but it's negligeable compared to other components of the runtime. Substrate block are translated to Starknet blocks in the 'Deoxys' module, and then executed by the Starknet pallet.</p>
-						<br>
-						<h5><strong>3) Execution</strong></h5>
-						<p>The execution layer defines the way blocks are executed and state diffs are produced. With Deoxys, blocks are executed and state diffs are produced using the <a href ="https://github.com/starkware-libs/blockifier">blockifier</a> by Starkware.</p>
-						<br>
-						</section>
-
-						<section class="docs-section" id="Setup-Deoxys">
-							<h2 class="section-heading">Setup Deoxys</h2>
-							<p><i>Professor Oak</i></p>
-						<p>In this section, we will guide you through the build and run process so that you can run your own Deoxys client, and query the Starknet blockchain as smoothly as possible.</p>
-						</section><!--//section-->
-
-						<h3>Get Started</h3>
-						<!DOCTYPE html>
-					<html lang="en">
-					<head>
-						<meta charset="UTF-8">
-						<meta name="viewport" content="width=device-width, initial-scale=1.0">
-						<title>Vertical Stepper</title>
-						<style>
-							.stepper {
-								list-style-type: none;
-								padding-left: 0;
-							}
-							.step {
-								padding: 15px;
-								border-left: 3px solid #ddd;
-								position: relative;
-								margin-bottom: 20px;
-							}
-							.step::before {
-								content: '';
-								width: 20px;
-								height: 20px;
-								border-radius: 50%;
-								background-color: #ddd;
-								position: absolute;
-								left: -13px;
-								top: 15px;
-								z-index: 1;
-							}
-							.step.active {
-								border-left: 3px solid #b7282e;
-							}
-							.step.active::before {
-								background-color: #b7282e;
-							}
-						</style>
-					</head>
-					<body>
-						<ol class="stepper">
-							<li class="step active">
-								<h3>1. Install dependencies</h3>
-								<p>We first need to make sure you have everything needed to complete this tutorial.</p>
-								<pre>
-					<div class="table-responsive my-4">
-							<table class="table table-bordered table-dark">
-								<thead>
-									<tr>
-										<th scope="col">Dependency</th>
-										<th scope="col">Version</th>
-										<th scope="col">Installation</th>
-										
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">Rust</th>
-										<td>rustc 1.69.0-nightly</td>
-										<td><code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-											rustup toolchain install nightly</code></td>
-							
-									</tr>
-									<tr>
-										<th scope="row">nvm</th>
-										<td>latest</td>
-										<td><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash</code></td>
-										
-									</tr>
-									<tr>
-										<th scope="row">Cairo</th>
-										<td>1.0</td>
-										<td><code>curl -L https://github.com/franalgaba/cairo-installer/raw/main/bin/cairo-installer | bash</code>></td>
-										
-									</tr>
-								</tbody>
-							</table>
-						</div>
-								
-							</li>
-							<li class="step">
-								<h3>2. Run your own node</h3>
-								<p>Fetch the code from the Official Deoxys repository in the folder of your choice.</p>
-								<pre>
-					<code>cd &lt;your-folder&gt;
-git clone https://github.com/KasarLabs/deoxys</code>
-								</pre>
-								<p>Then let's build the dependencies in release mode</p>
-								<pre>
-<code>cd deoxys
-cargo build --release</code>
-								</pre>
-								<p>Single-Node Development Chain. This command will start the Deoxys client which will begin the synchronization with the Starknet network automatically:</p>
-								<pre>
-					<code>cargo run --release -- --dev --sealing=manual</code>
-								</pre>
-							</li>
-							<li class="step">
-								<h3>3. Create your peer to peer network</h3>
-							</li>
-						</ol>
-					</body>
-					</html>
-					<br>
-					<br>
-					<br>
-
-					<section class="docs-section" id="Configuration">
-						<h2 class="section-heading">Configuration</h2>
-						<p>In this section, we will look at the different parameters you can tweak as a runtime engineer for your blockchain to be perfectly tailored to your needs.</p>
-					</section><!--//section-->
-
-
-
-					<h3>Configuration</h3>
-					<div class="table-responsive my-4">
-						<table class="table table-bordered table-dark">
-							<thead>
-								<tr>
-									<th scope="col">Parameter</th>
-									<th scope="col">Location</th>
-									<th scope="col">Interpretation</th>
-									<th scope="col">Default</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									
-									<td>MILLISECS_PER_BLOCK</td>
-									<td><code>crates/runtime/src/config.rs</code></td>
-									<td>Average expected block time targeted.</td>
-									<td>6000 (ms)</td>
-								</tr>
-								<tr>
-									
-									<td>BlockHashCount</td>
-									<td><code>crates/runtime/src/config.rs</code>></td>
-									<td>Maximum number of block number to block hash mappings to keep (oldest pruned first).</td>
-									<td>2400</td>
-								</tr>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<p>The core component of Deoxys is a custom substrate pallet named <code>starknet</code> which you can find under <code>crates/pallets/starknet.</code></p>
-					<p>Let's take a closer look at the types and their default values in Deoxys's configuration.</p>
-
-					<div class="docs-code-block">
-						<pre class="shadow-lg rounded">
-					<code>// `crates/runtime/src/pallets.rs`
-					
-// ...
-					
-/// Configure the Starknet pallet in pallets/starknet.
-impl pallet_starknet::Config for Runtime {
-type RuntimeEvent = RuntimeEvent;
-type StateRoot = pallet_starknet::state_root::IntermediateStateRoot&lt;Self&gt;;
-type SystemHash = mp_starknet::crypto::hash::pedersen::PedersenHasher;
-type TimestampProvider = Timestamp;
-type UnsignedPriority = UnsignedPriority;
-}</code>
-						</pre>
-					</div>
-
-					<div class="table-responsive my-4">
-						<table class="table table-bordered table-dark">
-							<thead>
-								<tr>
-									<th scope="col">Type</th>
-									<th scope="col">Interpretation</th>
-									<th scope="col">Default</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									
-									<td>RuntimeEvent</td>
-									<td>Event type that will be emitted on extrinsics' execution.</td>
-									<td>Substrate RuntimeEvent</td>
-									
-								</tr>
-								<tr>
-									
-									<td>StateRoot</td>
-									<td>Defines how the timestamp is retrieved (used for block timestamp)</td>
-									<td><a href="https://docs.starknet.io/documentation/architecture_and_concepts/Network_Architecture/State/starknet-state/#state-commitment">Starknet State Root</a><a</td>
-									
-								</tr>
-								<tr>
-									<td>SystemHash</td>
-									<td>Hashing function used to compute commitments.</td>
-									<td>Pedersen</td>
-								</tr>
-								<tr>
-									<td>TimestampProvider</td>
-									<td>Defines how the timestamp is retrieved (used for block timestamp)</td>
-									<td><a href="https://docs.rs/pallet-timestamp/latest/pallet_timestamp/">Timestamp Pallet</a><a</td>
-								</tr>
-								
-							</tbody>
-						</table>
-					</div>
-
-					<section class="docs-section" id="Starknet">
-						<h2 class="section-heading">Starknet</h2>
-						<h3>StarkNet Features Compatibility</h3>
-					</section><!--//section-->
-
-
-
-					<h3>Block</h3>
-					<div class="table-responsive my-4">
-						<table class="table table-bordered table-dark">
-							<thead>
-								<tr>
-									<th scope="col" style="width: 300px;">Feature</th>
-									<th scope="col">State</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td style="width: 300px;">Parent block hash</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Block number</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Global State Root</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Sequencer Address</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Block timestamp</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Transaction Count</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Transaction Commitment</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Event Count</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Event Commitment</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Protocol Version</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Extra data</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					
-					<h3>Transaction</h3>
-					<div class="table-responsive my-4">
-						<table class="table table-bordered table-dark">
-							<thead>
-								<tr>
-									<th scope="col" style="width: 300px;">Feature</th>
-									<th scope="col">State</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td style="width: 300px;">Declare</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Deploy</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Invoke</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">L1 handler</td>
-									<td style="width: 100px;">🚧</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<h3>RPC</h3>
-			<div class="table-responsive my-4">
-				<table class="table table-bordered table-dark">
-					<thead>
-						<tr>
-							<th scope="col" style="width: 300px;">Feature</th>
-							<th scope="col">State</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td style="width: 300px;">starknet_getBlockWithTxHashes</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getBlockWithTxs</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getStateUpdate</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getStorageAt</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getTransactionByHash</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getTransactionByBlockIdAndIndex</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getTransactionReceipt</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getClass</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getClassHashAt</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getClassAt</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getBlockTransactionCount</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_call</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_estimateFee</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_blockNumber</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_blockHashAndNumber</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_chainId</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_pendingTransactions</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_syncing</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getEvents</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getNonce</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_traceTransaction</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_simulateTransaction</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_traceBlockTransactions</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_addInvokeTransaction</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_addDeclareTransaction</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_addDeployAccountTransaction</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-			<h3>Decentralisation</h3>
-			<div class="table-responsive my-4">
-				<table class="table table-bordered table-dark">
-					<thead>
-						<tr>
-							<th scope="col" style="width: 300px;">Feature</th>
-							<th scope="col">State</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td style="width: 300px;">Single node</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">Small pool of nodes (POA)</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">Large pool of nodes (Base consensus)</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">Large pool of nodes (Custom consensus)</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			
-			<h3>Optimisation</h3>
-			<div class="table-responsive my-4">
-				<table class="table table-bordered table-dark">
-					<thead>
-						<tr>
-							<th scope="col" style="width: 300px;">Feature</th>
-							<th scope="col">State</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td style="width: 300px;">Commitments</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">Transaction validity before mempool</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-
-			<section class="docs-section" id="Contribute">
-				<h2 class="section-heading">Contribute</h2>
-				<h3>Contribute to Deoxys</h3>
-			</section><!--//section-->
-			<p>Deoxys has been built from the day 1 in the most open-source way possible, and will always follow the principles that drive the Starknet ecosystem since day 1. Anyone is free to join the KasarLabs telegram group <a href="https://t.me/kasarlabs">here</a>, come chat, ask for help, discuss anything!
-			</p>
-			
-			<div class="callout-block callout-block-success">
-				<div class="content">
-					<h4 class="callout-title">
-						<span class="callout-icon-holder me-1">
-							<i class="fas fa-thumbs-up"></i>
-						</span><!--//icon-holder-->
-						Tip
-					</h4>
-					<p>Have an idea of an ambitious hack related to one module of the client? Such as an optimization update or a fixing issue? Go ahead and create a discussion on the GitHub repo, if all good you'll be invited to present it at one community call and then start implementing it
-				</div><!--//content-->
-			</div><!--//callout-block-->
-
-			<br>
-
-			
-			
-			<h3>Developers</h3>
-			<p>Deoxys contributions are rewarded through <a href="https://www.onlydust.xyz/">OnlyDust</a>.
-			</p>
-			<p>
-			What does that mean? It means that you as a developer are free to pick any open issue and submit a PR. Once the PR is merged you will be paid according to the time/difficulty of the PR. For now, Deoxys team does not look for new contributors, but this could change in the future. If you are interested in joining the team, please reach out to us on <a href="https://t.me/kasarlabs">Telegram</a>.
-			</p>
-			<br>
-			<h3>Bug Hunting</h3>
-		
-			<p>
-			  Found a bug? Please submit an <a href="https://github.com/KasarLabs/deoxys/pulls">issue</a> on GitHub so any open source contributor can look at it and fix it (you can too!)
-			</p>
-			<br>
-			<h3>Documentation</h3>
-			
-			<p>
-			  Missing anything in these docs? Spotted a typo? Please submit a PR or create an issue on <a href="https://github.com/kasarLabs/deoxys-docs/">GitHub</a>. As everything we do, we grow together and the more eyes we have looking at it the better it will be.
-			</p>
-			<br>
-
-			<section class="docs-section" id="FAQ">
-				<h2 class="section-heading">FAQ</h2>
-				<h3>The road towards production</h3>
-			</section><!--//section-->
-
-			
-
-			<p>
-			Deoxys is still at the development stage. So be cautious about going to production with such a system, thorough audits are highly recommended.
-			</p>
-
-			<p>
-			Deoxys aims to stand out as the fastest and most widely adopted client on Starknet. Thanks to its innovative approach, Deoxys considerably lightens the network, optimizes performance, and delivers a seamless user experience. When you choose Deoxys, you benefit from a state-of-the-art solution designed to unleash the full potential of the Starknet network and facilitate the development of high-performance, scalable decentralized applications.
-			</p>
-
-			<section class="docs-section" id="Starknode">
-				<h2 class="section-heading">Starknode</h2>
-				<h3>👽 x 💾</h3>
-			</section><!--//section-->
-			
-
-
-			<p>
-			  In the near future, we'd like to enable Starknode purchasers to run Deoxys clients on their boards. In particular, this would enable faster synchronization with the current state, and lighten the network thanks to peer-to-peer communication between Starknodes.
-			</p>
-
-
-			<section class="docs-section" id="Ecosystem">
-				<h2 class="section-heading">Ecosystem</h2>
-			</section><!--//section-->
-			<p>
-			In this section you'll find a curation of existing developments around Deoxys and the clever ways in which it can be used.
-			</p>
-			<div class="alert alert-info" role="alert">
-				Feel free to submit a PR to add your own project to this list!
-				<ul>
-					<li><strong>Starknode</strong>: a plug-n-play Deoxys node for Starknet</li>
-					</ul>
-			  </div>
-
-			    <footer class="footer">
-				    <div class="container text-center py-5">
-				        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-			            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-				        <ul class="social-list list-unstyled pt-4 mb-0">
-						    <li class="list-inline-item"><a href="https://github.com/KasarLabs"><i class="fab fa-github fa-fw"></i></a></li> 
-				            <li class="list-inline-item"><a href="https://twitter.com/kasarLabs"><i class="fab fa-twitter fa-fw"></i></a></li>
-				        </ul><!--//social-list-->
-				    </div>
-			    </footer>
-		    </div> 
-	    </div>
-    </div><!--//docs-wrapper-->
-   
-       
     <!-- Javascript -->          
     <script src="assets/plugins/popper.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
@@ -1240,6 +611,3 @@ type UnsignedPriority = UnsignedPriority;
     <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
     <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
     <script src="assets/js/docs.js"></script> 
-
-</body>
-</html>
