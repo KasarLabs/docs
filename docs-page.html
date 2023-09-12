@@ -99,689 +99,719 @@
 	    <div class="docs-content">
 		    <div class="container">
 			    <article class="docs-article" id="section-1">
-				    <header class="docs-header">
-					    <h1 class="docs-heading">Deoxys <span class="docs-time">Last updated: 2023-09-04</span></h1>
-					    <section class="docs-intro">
-						</section><!--//docs-intro-->
-							
-						<div class="docs-code-block">
-							<pre class="shadow-lg rounded"><code class="json hljs">[
-  {
-    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"apples"</span>,
-    <span class="hljs-attr">"count"</span>: [<span class="hljs-number">12000</span>, <span class="hljs-number">20000</span>],
-    <span class="hljs-attr">"description"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"..."</span>, <span class="hljs-attr">"sensitive"</span>: <span class="hljs-literal">false</span>}
-  },
-  {
-    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"oranges"</span>,
-    <span class="hljs-attr">"count"</span>: [<span class="hljs-number">17500</span>, <span class="hljs-literal">null</span>],
-    <span class="hljs-attr">"description"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"..."</span>, <span class="hljs-attr">"sensitive"</span>: <span class="hljs-literal">false</span>}
-  }
-]
 
-
-</code></pre>
-						</div><!--//docs-code-block-->
-				    </header>
 					
-					<section class="docs-section" id="Introduction">
-						<h2 class="section-heading">Introduction</h2>
-						<p>Deoxys is a Starknet full node client implementation based on Substrate and powered by Rust. It unlocks the full potential of full nodes on Starknet.</p>
-					</section><!--//section-->
-
-						<br>
-						<h2>Welcome to Deoxys</h2>
-						<p>As we usher in the era of the decentralized web, the role of advanced blockchain technology has become increasingly critical. Starknet, a decentralized, permissionless, and scalable ZK-Rollup, represents a significant step forward in this field. It has proven itself as a hero in the L2 war and significantly stands out today. But every hero needs a trusted companion, and for Starknet, this ally emerges as Deoxys. Built on the robust Substrate framework and powered by the reliable might of Rust, Deoxys is the most powerful Starknet full node implementation.
-						In this documentation, we will learn more about its architecture, its attributes, its specifics, and of course, how to launch your own Deoxys and benefit from its powers. But before we dive into that, I would like to say a few words about the technical prerequisites related to full nodes on Starknet and the tools that we are going to use.</p>
-
-						<section class="docs-section" id="Prerequisites">
-							<h2 class="section-heading">Prerequisites</h2>
-							<p>Deoxys is a Starknet full node client implementation based on Substrate and powered by Rust. It unlocks the full potential of full nodes on Starknet.</p>
-						</section><!--//section-->
-
-
-						<br>
-						<h3>Full Nodes</h4>
-						<p>Full nodes track the state of Starknet as it evolves over time and allow users and developers to query and change this state via <a href="https://github.com/starkware-libs/starknet-specs/blob/master/api/starknet_api_openrpc.json">Starknet's JSON RPC</a>. An important thing to note - full nodes don't change the state themselves. Currently, they forward the requests to the sequencer and pull state updates from it to reach the latest block.</p>
-						<p>Right now on Starknet we have different full-node implementations:</p>
-						<ul>
-							<li><a href = "https://github.com/eqlabs/pathfinder">Deoxys:</a> Rust/Substrate based</li>
-							<li><a href = "https://github.com/eqlabs/pathfinder">Pathfinder:</a> Rust based</li>
-							<li><a href = "https://github.com/nethermindeth/juno">Juno:</a> Golang based</li>
-							<li><a href = "https://github.com/starkware-libs/papyrus">Papyrus:</a> Rust based</li>
-						</ul>
-						<p>Full nodes are like guardians of the Starknet state, they track and store a record of it. Sequencers themselves have full nodes.</p>
-						
-						<h3>Substrate</h3>
-						<p><a href = "https://substrate.io/">Substrate</a> is a flexible, open-source framework developed by Parity Technologies for creating robust blockchains. It offers essential infrastructure through its Substrate Core and a range of pre-built modules via the Substrate Runtime Module Library (SRML).
-							By using Substrate, Deoxys is able to concentrate on building unique features of a StarkNet full node without having to create standard blockchain functions from the ground up. Substrate's modularity also allows easy network upgrades, changes, and the addition of new features. Furthermore, its extensibility ensures scalability and interoperability, both key aspects in the evolution of the Starknet ecosystem.</p>
-
-
-						<h3>Rust</h3>
-						<p>is a systems programming language that emphasizes safety, speed, and concurrency. It is known for its powerful type system, memory safety guarantees, and minimal runtime. Rust's design prevents many common programming errors, like null pointer dereferencing and data races, which makes it an ideal choice for building reliable, high-performance systems.
-						<p>In the context of Deoxys, Rust provides a number of benefits:
-							<ul>
-								<li><strong>Memory Safety:</strong> Rust's ownership model guarantees memory safety without needing a garbage collector, which can be a bottleneck in high-performance systems.</li>
-								<li><strong>Concurrency:</strong> Rust has first-class support for concurrent and distributed systems, making it perfect for a distributed, concurrent environment like a blockchain.</li>
-								<li><strong>Interoperability:</strong> Rust has excellent interoperability with other languages, which can be useful in a multi-language, open-source project.</li>
-								<li><strong>Performance:</strong> Rust is designed to perform nearly as well as C++, making it suitable for a high-throughput system like a blockchain network.</li>
-								<li><strong>Community and Ecosystem:</strong> Rust has a strong and growing community of developers, and its package ecosystem, Crates.io, provides a wealth of libraries that can help speed up the development process.</li>
-							</ul>
-							
-						<p>Given these benefits, Rust is well-suited for implementing a Starknet full node. It allows Deoxys to achieve high performance and reliability, while its strong memory safety guarantees help ensure the node operates as expected. Moreover, Rust's advanced concurrency features enable Deoxys to efficiently process multiple transactions and requests concurrently, enhancing its ability to manage the Starknet state.</p>
-						</p>
-						</p>
-						<section id="architecture"></section>
-
-						<section class="docs-section" id="Architecture">
-							<h2 class="section-heading">Architecture</h2>
-							<h3>Global Operation</p>
-						</section><!--//section-->
-						<br>
-						<p>Here's a straightforward schematic representation of Deoxys, showcasing its dual role as a guardian of the Starknet state and its peer-to-peer state communication functionality. This feature reduces the reliance on requests to the sequencer and minimizes interactions between full node clients and the Starknet network sequencer.</p>
-						<img src="https://i.ibb.co/M9BZ79h/architecture.png" alt="architecture" border="0">
-
-
-						<p><strong>Step 1: </strong>Synchronizing the Deoxys Boot-node with Starknet's current state</p>
-						<p>The initial stage of the process involves running a Deoxys boot-node with AUTHORITY status, establishing direct communication with the sequencer gateway. This gateway continuously retrieves blocks starting from the genesis block and stores subsequent states in its database. Once it reaches the latest block issued by the sequencer, it can efficiently query the sequencer as new blocks are produced.</p>
-
-						<p><strong>Step 2: </strong>Cross-chain verification</p>
-						<p>The validity of the blocks received is checked by means of a cross-chain verification on the Ethereum chain. This ensures that network nodes are not subsequently informed of a false status (in progress).</p>
-
-						<p><strong>Step 3: </strong>P2p synchronization of Deoxys nodes from the Deoxys Boot-node</p>
-						<p>Once a boot-node is operational and its ports are open, an unlimited number of Deoxys clients can be initiated. These clients function similarly to the boot-node but with a distinction that they no longer communicate with the sequencer. Instead, they solely interact with one another. Each client continuously acquires the state by requesting it from its peers while also responding to queries from other nodes within the network.</p>
-
-						<br>
-						<br>
-						<H4>The Deoxys Runtime</H4>
-						<br>
-						<H5><strong>1) The Starknet pallet</strong></H5>
-					
-						<p>The core component of Deoxys is the <code>starknet</code> pallet. It provides a Starknet compatibility layer for Substrate.
-
-							This pallet, in addition to the <strong>RPC</strong> module, validates starknet-encoded transactions and makes it possible to re-execute them and store the successive states.</p>
-						<br>
-						<H5><strong>2) Wrapper block strategy</strong></H5>
-						<p>You might be asking, how are we able to map Substrate blocks to Starknet blocks ?
-							Well we use the <a href = "https://corepaper.org/substrate/wrapper/">wrapper block</a> method first used by Parity in frontier, the EVM compatibility layer for Substrate.</p>
-
-                        <div class="callout-block callout-block-info">
-                            <div class="content">
-                                <p>"Wrapper block is a strategy in Substrate to allow it processing blocks that were not originally designed with Substrate in mind."</p>
-                            </div><!--//content-->
-                        </div><!--//callout-block-->
-						<p>It does add a slight performance overhead but it's negligeable compared to other components of the runtime. Substrate block are translated to Starknet blocks in the 'Deoxys' module, and then executed by the Starknet pallet.</p>
-						<br>
-						<h5><strong>3) Execution</strong></h5>
-						<p>The execution layer defines the way blocks are executed and state diffs are produced. With Deoxys, blocks are executed and state diffs are produced using the <a href ="https://github.com/starkware-libs/blockifier">blockifier</a> by Starkware.</p>
-						<br>
-						</section>
-
-						<section class="docs-section" id="Setup-Deoxys">
-							<h2 class="section-heading">Setup Deoxys</h2>
-							<p><i>Professor Oak</i></p>
-						<p>In this section, we will guide you through the build and run process so that you can run your own Deoxys client, and query the Starknet blockchain as smoothly as possible.</p>
-						</section><!--//section-->
-
-						<h3>Get Started</h3>
-						<!DOCTYPE html>
-					<html lang="en">
 					<head>
-						<meta charset="UTF-8">
-						<meta name="viewport" content="width=device-width, initial-scale=1.0">
-						<title>Vertical Stepper</title>
-						<style>
-							.stepper {
-								list-style-type: none;
-								padding-left: 0;
-							}
-							.step {
-								padding: 15px;
-								border-left: 3px solid #ddd;
-								position: relative;
-								margin-bottom: 20px;
-							}
-							.step::before {
-								content: '';
-								width: 20px;
-								height: 20px;
-								border-radius: 50%;
-								background-color: #ddd;
-								position: absolute;
-								left: -13px;
-								top: 15px;
-								z-index: 1;
-							}
-							.step.active {
-								border-left: 3px solid #b7282e;
-							}
-							.step.active::before {
-								background-color: #b7282e;
-							}
-						</style>
-					</head>
-					<body>
-						<ol class="stepper">
-							<li class="step active">
-								<h3>1. Install dependencies</h3>
-								<p>We first need to make sure you have everything needed to complete this tutorial.</p>
-								<pre>
-					<div class="table-responsive my-4">
-							<table class="table table-bordered table-dark">
-								<thead>
-									<tr>
-										<th scope="col">Dependency</th>
-										<th scope="col">Version</th>
-										<th scope="col">Installation</th>
-										
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">Rust</th>
-										<td>rustc 1.69.0-nightly</td>
-										<td><code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-											rustup toolchain install nightly</code></td>
-							
-									</tr>
-									<tr>
-										<th scope="row">nvm</th>
-										<td>latest</td>
-										<td><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash</code></td>
-										
-									</tr>
-									<tr>
-										<th scope="row">Cairo</th>
-										<td>1.0</td>
-										<td><code>curl -L https://github.com/franalgaba/cairo-installer/raw/main/bin/cairo-installer | bash</code>></td>
-										
-									</tr>
-								</tbody>
-							</table>
-						</div>
-								
-							</li>
-							<li class="step">
-								<h3>2. Run your own node</h3>
-								<p>Fetch the code from the Official Deoxys repository in the folder of your choice.</p>
-								<div class="docs-code-block">
-									<pre class="shadow-lg rounded"><code class="bash hljs">
-<span class="hljs-attr">cd</span> &lt;<span class="hljs-string">your-folder</span>&gt;
-<span class="hljs-attr">git clone</span> <span class="hljs-string">https://github.com/KasarLabs/deoxys</span>
-									</code></pre>
-								</div><!--//docs-code-block-->
-								
-								<p>Single-Node Development Chain. This command will start the Deoxys client which will begin the synchronization with the Starknet network automatically:</p>
-								<pre><code>cargo run --release -- --dev --sealing=manual</code></pre>
-							</li>
-							
-							
-							<li class="step">
-								<h3>3. Create your peer to peer network</h3>
-							</li>
-							
-						</ol>
-					</body>
-					</html>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deoxys Documentation</title>
+    <!-- Additional CSS can be added here -->
+</head>
+
+<iframe src="https://giphy.com/embed/jYpSOnXqy5Spy" width="480" height="267" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/pokemon-rayquaza-deoxys-jYpSOnXqy5Spy">via GIPHY</a></p>
+
+
+    <section class="docs-section" id="Introduction">
+        <h2 class="section-heading">Introduction</h2>
+        <p>Deoxys is a Starknet full node client implementation based on Substrate and powered by Rust. It unlocks the full potential of full nodes on Starknet.</p>
+    </section>
+
+    <section class="docs-section">
+        <h2>Welcome to Deoxys</h2>
+        <p>As we usher in the era of the decentralized web, the role of advanced blockchain technology has become increasingly critical. Starknet, a decentralized, permissionless, and scalable ZK-Rollup, represents a significant step forward in this field. It has proven itself as a hero in the L2 war and significantly stands out today. But every hero needs a trusted companion, and for Starknet, this ally emerges as Deoxys. Built on the robust Substrate framework and powered by the reliable might of Rust, Deoxys is the most powerful Starknet full node implementation.
+            In this documentation, we will learn more about its architecture, its attributes, its specifics, and of course, how to launch your own Deoxys and benefit from its powers. But before we dive into that, I would like to say a few words about the technical prerequisites related to full nodes on Starknet and the tools that we are going to use.</p>
+    </section>
+
+    <section class="docs-section" id="Prerequisites">
+        <h2 class="section-heading">Prerequisites</h2>
+        <p>Deoxys is a Starknet full node client implementation based on Substrate and powered by Rust. It unlocks the full potential of full nodes on Starknet.</p>
+    </section>
+
+    <section class="docs-section">
+        <h3>Full Nodes</h3>
+        <p>Full nodes track the state of Starknet as it evolves over time and allow users and developers to query and change this state via <a href="https://github.com/starkware-libs/starknet-specs/blob/master/api/starknet_api_openrpc.json">Starknet's JSON RPC</a>. An important thing to note - full nodes don't change the state themselves. Currently, they forward the requests to the sequencer and pull state updates from it to reach the latest block.</p>
+        <p>Right now on Starknet we have different full-node implementations:</p>
+        <ul>
+            <li><a href="https://github.com/eqlabs/pathfinder">Deoxys:</a> Rust/Substrate based</li>
+            <li><a href="https://github.com/eqlabs/pathfinder">Pathfinder:</a> Rust based</li>
+            <li><a href="https://github.com/nethermindeth/juno">Juno:</a> Golang based</li>
+            <li><a href="https://github.com/starkware-libs/papyrus">Papyrus:</a> Rust based</li>
+        </ul>
+        <p>Full nodes are like guardians of the Starknet state, they track and store a record of it. Sequencers themselves have full nodes.</p>
+    </section>
+
+    <section class="docs-section">
+        <h3>Substrate</h3>
+        <p><a href="https://substrate.io/">Substrate</a> is a flexible, open-source framework developed by Parity Technologies for creating robust blockchains. It offers essential infrastructure through its Substrate Core and a range of pre-built modules via the Substrate Runtime Module Library (SRML).
+            By using Substrate, Deoxys is able to concentrate on building unique features of a StarkNet full node without having to create standard blockchain functions from the ground up. Substrate's modularity also allows easy network upgrades, changes, and the addition of new features. Furthermore, its extensibility ensures scalability and interoperability, both key aspects in the evolution of the Starknet ecosystem.</p>
+    </section>
+
+    <section class="docs-section">
+        <h3>Rust</h3>
+        <p>Rust is a systems programming language that emphasizes safety, speed, and concurrency. It is known for its powerful type system, memory safety guarantees, and minimal runtime. Rust's design prevents many common programming errors, like null pointer dereferencing and data races, which makes it an ideal choice for building reliable, high-performance systems.</p>
+        <p>In the context of Deoxys, Rust provides a number of benefits:</p>
+        <ul>
+            <li><strong>Memory Safety:</strong> Rust's ownership model guarantees memory safety without needing a garbage collector, which can be a bottleneck in high-performance systems.</li>
+            <li><strong>Concurrency:</strong> Rust has first-class support for concurrent and distributed systems, making it perfect for a distributed, concurrent environment like a blockchain.</li>
+            <li><strong>Interoperability:</strong> Rust has excellent interoperability with other languages, which can be useful in a multi-language, open-source project.</li>
+            <li><strong>Performance:</strong> Rust is designed to perform nearly as well as C++, making it suitable for a high-throughput system like a blockchain network.</li>
+            <li><strong>Community and Ecosystem:</strong> Rust has a strong and growing community of developers, and its package ecosystem, Crates.io, provides a wealth of libraries that can help speed up the development process.</li>
+        </ul>
+        <p>Given these benefits, Rust is well-suited for implementing a Starknet full node. It allows Deoxys to achieve high performance and reliability, while its strong memory safety guarantees help ensure the node operates as expected. Moreover, Rust's advanced concurrency features enable Deoxys to efficiently process multiple transactions and requests concurrently, enhancing its ability to manage the Starknet state.</p>
+    </section>
+
+
+	<section id="architecture"></section>
+
+	<section class="docs-section" id="Architecture">
+		<h2 class="section-heading">Architecture</h2>
+		<h3>Global Operation</h3>
+		
+		<p>Here's a straightforward schematic representation of Deoxys, showcasing its dual role as a guardian of the Starknet state and its peer-to-peer state communication functionality. This feature reduces the reliance on requests to the sequencer and minimizes interactions between full node clients and the Starknet network sequencer.</p>
+		
+		<img src="https://i.ibb.co/M9BZ79h/architecture.png" alt="architecture" border="0">
+		
+		<p><strong>Step 1: </strong>Synchronizing the Deoxys Boot-node with Starknet's current state</p>
+		<p>The initial stage of the process involves running a Deoxys boot-node with AUTHORITY status, establishing direct communication with the sequencer gateway. This gateway continuously retrieves blocks starting from the genesis block and stores subsequent states in its database. Once it reaches the latest block issued by the sequencer, it can efficiently query the sequencer as new blocks are produced.</p>
+		
+		<br>
+		<p><strong>Step 2: </strong>Cross-chain verification</p>
+		<p>The validity of the blocks received is checked by means of a cross-chain verification on the Ethereum chain. This ensures that network nodes are not subsequently informed of a false status (in progress).</p>
+		
+		<br>
+		<p><strong>Step 3: </strong>P2p synchronization of Deoxys nodes from the Deoxys Boot-node</p>
+		<p>Once a boot-node is operational and its ports are open, an unlimited number of Deoxys clients can be initiated. These clients function similarly to the boot-node but with a distinction that they no longer communicate with the sequencer. Instead, they solely interact with one another. Each client continuously acquires the state by requesting it from its peers while also responding to queries from other nodes within the network.</p>
+		
+		<br>
+		<br>
+		<h3>The Deoxys Runtime</h3>
+		
+		<br>
+		<h5><strong>1) The Starknet pallet</strong></h5>
+		<p>The core component of Deoxys is the <code>starknet</code> pallet. It provides a Starknet compatibility layer for Substrate. This pallet, in addition to the <strong>RPC</strong> module, validates starknet-encoded transactions and makes it possible to re-execute them and store the successive states.</p>
+		
+		<br>
+		<h5><strong>2) Wrapper block strategy</strong></h5>
+		<p>You might be asking, how are we able to map Substrate blocks to Starknet blocks? Well, we use the <a href="https://corepaper.org/substrate/wrapper/">wrapper block</a> method first used by Parity in frontier, the EVM compatibility layer for Substrate.</p>
+	
+		
+		<div class="callout-block callout-block-info">
+			<div class="content">
+				<p>"Wrapper block is a strategy in Substrate to allow the processing of blocks that were not originally designed with Substrate in mind."</p>
+			</div><!--//content-->
+		</div><!--//callout-block-->
+		
+		<p>It does add a slight performance overhead but it's negligible compared to other components of the runtime. Substrate blocks are translated to Starknet blocks in the 'Deoxys' module, and then executed by the Starknet pallet.</p>
+		
+		<br>
+		<h5><strong>3) Execution</strong></h5>
+		<p>The execution layer defines the way blocks are executed and state diffs are produced. With Deoxys, blocks are executed and state diffs are produced using the <a href="https://github.com/starkware-libs/blockifier">blockifier</a> by Starkware.</p>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!---->
+	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Vertical Stepper</title><style>
+			.stepper {
+				list-style-type: none;
+				padding-left: 0;
+			}
+		
+			.step {
+				padding: 30px;
+				border-left: 3px solid #4094f4;
+				position: relative;
+				margin-bottom: 20px;
+			}
+		
+			.step::before {
+				content: '';
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background-color: #4094f4;
+				position: absolute;
+				left: -13px;
+				top: 15px;
+				z-index: 1;
+			}
+		
+			.step.active {
+				border-left: 3px solid #4094f4;
+			}
+		
+			.step.active::before {
+				background-color: #4094f4;
+			}
+		
+			/* Table styles */
+			table {
+				width: 100%;
+				border-collapse: separate;
+				border-spacing: 0;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+		
+			thead th {
+				background-color: #e9e9e9;  /* Light gray header */
+				color: #333;  /* Dark text color */
+				font-weight: normal;  /* Removed bold */
+				padding: 10px 15px;
+			}
+		
+			tbody td {
+				padding: 10px 15px;
+				border-bottom: 1px solid #e9e9e9;  /* Light border for separation */
+			}
+		
+			tbody tr:last-child td {
+				border-bottom: none;  /* Remove bottom border for last row */
+			}
+		
+			code {
+				background-color: #f4f4f4;  /* Light background for code snippets */
+				padding: 2px 4px;
+				border-radius: 4px;
+			}
+		</style>
+		
+	</head>
+	
+	<body>
+		<section class="docs-section" id="Setup-Deoxys">
+			<h2 class="section-heading">Setup Deoxys</h2>
+			<p><i>Professor Oak</i></p>
+			<p>In this section, we will guide you through the build and run process so that you can run your own Deoxys client, and query the Starknet blockchain as smoothly as possible.</p>
+		</section>
+		<!--//section-->
+	
+		<br>
+		<h3>Get Started</h3>
+	
+		<ol class="stepper">
+			<li class="step active">
+				<h4>1. Install dependencies</h4>
+				<p>We first need to make sure you have everything needed to complete this tutorial.</p>
+				<div class="table-responsive my-4">
+					<table class="table table-bordered table-dark">
+						<thead>
+							<tr>
+								<th scope="col">Dependency</th>
+								<th scope="col">Version</th>
+								<th scope="col">Installation</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">Rust</th>
+								<td>rustc 1.69.0-nightly</td>
+								<td><code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh rustup toolchain install nightly</code></td>
+							</tr>
+							<tr>
+								<th scope="row">nvm</th>
+								<td>latest</td>
+								<td><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash</code></td>
+							</tr>
+							<tr>
+								<th scope="row">Cairo</th>
+								<td>1.0</td>
+								<td><code>curl -L https://github.com/franalgaba/cairo-installer/raw/main/bin/cairo-installer | bash</code></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</li>
+			<li class="step">
+				<h4>2. Run your own node</h4>
+				<p>Fetch the code from the Official Deoxys repository in the folder of your choice.</p>
+				<div class="docs-code-block">
+
+<pre><code>cd</span> &lt;<span class="hljs-string">your-folder</span>&gt;
+git clone</span> <span class="hljs-string">https://github.com/KasarLabs/deoxys</span></code></pre>
+						
+				</div>
+				<!--//docs-code-block-->
+	
+				<p>Then let's build the dependencies in <code>release</code> mode</p>
+
+<pre><code>cd</span> &lt;<span class="hljs-string">deoxys</span>&gt;
+cargo</span> <span class="hljs-string">build --release</span></code></pre>
+
+
+				<br>
+				<p><strong>Single-node Development Chain.</strong></p>
+				<p>This command will start the Deoxys client which will begin the synchronization with the Starknet network automatically:</p>
+				
+				<pre><code>cargo run --release -- --dev --sealing=manual</code></pre>
+
+
+			</li>
+	
+			<li class="step">
+				<h4>3. Create your peer to peer network</h4>
+			</li>
+		</ol>
+	</body>
 				
 
-					<section class="docs-section" id="Configuration">
-						<h2 class="section-heading">Configuration</h2>
-						<p>In this section, we will look at the different parameters you can tweak as a runtime engineer for your blockchain to be perfectly tailored to your needs.</p>
-					</section><!--//section-->
+	<section class="docs-section" id="Configuration">
+		<h2 class="section-heading">Configuration</h2>
+		<p>In this section, we will look at the different parameters you can tweak as a runtime engineer for your blockchain to be perfectly tailored to your needs.</p>
+	</section>
+	
+	<h3>Configuration</h3>
+	
+	<div class="table-responsive my-4">
+		<table class="table table-bordered table-dark">
+			<thead>
+				<tr>
+					<th scope="col">Parameter</th>
+					<th scope="col">Location</th>
+					<th scope="col">Interpretation</th>
+					<th scope="col">Default</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>MILLISECS_PER_BLOCK</td>
+					<td><code>crates/runtime/src/config.rs</code></td>
+					<td>Average expected block time targeted.</td>
+					<td>6000 (ms)</td>
+				</tr>
+				<tr>
+					<td>BlockHashCount</td>
+					<td><code>crates/runtime/src/config.rs</code></td>
+					<td>Maximum number of block number to block hash mappings to keep (oldest pruned first).</td>
+					<td>2400</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<p>The core component of Deoxys is a custom substrate pallet named <code>starknet</code> which you can find under <code>crates/pallets/starknet.</code></p>
+	<p>Let's take a closer look at the types and their default values in Deoxys's configuration.</p>
+	
+	<div class="docs-code-block">
+		<pre><code>// `crates/runtime/src/pallets.rs`
+						
+	// ...
+	
+	/// Configure the Starknet pallet in pallets/starknet.
+	impl pallet_starknet::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type StateRoot = pallet_starknet::state_root::IntermediateStateRoot&lt;Self&gt;
+	type SystemHash = mp_starknet::crypto::hash::pedersen::PedersenHasher;
+	type TimestampProvider = Timestamp;
+	type UnsignedPriority = UnsignedPriority;
+	}</code></pre>
+	</div>
+	
+	<div class="table-responsive my-4">
+		<table class="table table-bordered table-dark">
+			<thead>
+				<tr>
+					<th scope="col">Type</th>
+					<th scope="col">Interpretation</th>
+					<th scope="col">Default</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>RuntimeEvent</td>
+					<td>Event type that will be emitted on extrinsics' execution.</td>
+					<td>Substrate RuntimeEvent</td>
+				</tr>
+				<tr>
+					<td>StateRoot</td>
+					<td>Defines how the timestamp is retrieved (used for block timestamp)</td>
+					<td><a href="https://docs.starknet.io/documentation/architecture_and_concepts/Network_Architecture/State/starknet-state/#state-commitment">Starknet State Root</a></td>
+				</tr>
+				<tr>
+					<td>SystemHash</td>
+					<td>Hashing function used to compute commitments.</td>
+					<td>Pedersen</td>
+				</tr>
+				<tr>
+					<td>TimestampProvider</td>
+					<td>Defines how the timestamp is retrieved (used for block timestamp)</td>
+					<td><a href="https://docs.rs/pallet-timestamp/latest/pallet_timestamp/">Timestamp Pallet</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+
+	<section class="docs-section" id="Starknet">
+		<h2 class="section-heading">Starknet</h2>
+		<h3>StarkNet Features Compatibility</h3>
+	</section><!--//section-->
+	
+	<h3>Block</h3>
+	<div class="table-responsive my-4">
+		<table class="table table-bordered table-dark">
+			<thead>
+				<tr>
+					<th scope="col" style="width: 300px;">Feature</th>
+					<th scope="col">State</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="width: 300px;">Parent block hash</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Block number</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Global State Root</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Sequencer Address</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Block timestamp</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Transaction Count</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Transaction Commitment</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Event Count</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Event Commitment</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Protocol Version</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Extra data</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<h3>Transaction</h3>
+	<div class="table-responsive my-4">
+		<table class="table table-bordered table-dark">
+			<thead>
+				<tr>
+					<th scope="col" style="width: 300px;">Feature</th>
+					<th scope="col">State</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="width: 300px;">Declare</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Deploy</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Invoke</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">L1 handler</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<h3>RPC</h3>
+	<div class="table-responsive my-4">
+		<table class="table table-bordered table-dark">
+			<thead>
+				<tr>
+					<th scope="col" style="width: 300px;">Feature</th>
+					<th scope="col">State</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="width: 300px;">starknet_getBlockWithTxHashes</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getBlockWithTxs</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getStateUpdate</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getStorageAt</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getTransactionByHash</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getTransactionByBlockIdAndIndex</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getTransactionReceipt</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getClass</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getClassHashAt</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getClassAt</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getBlockTransactionCount</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_call</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_estimateFee</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_blockNumber</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_blockHashAndNumber</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_chainId</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_pendingTransactions</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_syncing</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getEvents</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_getNonce</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_traceTransaction</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_simulateTransaction</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_traceBlockTransactions</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_addInvokeTransaction</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_addDeclareTransaction</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">starknet_addDeployAccountTransaction</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<h3>Decentralisation</h3>
+	<div class="table-responsive my-4">
+		<table class="table table-bordered table-dark">
+			<thead>
+				<tr>
+					<th scope="col" style="width: 300px;">Feature</th>
+					<th scope="col">State</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="width: 300px;">Single node</td>
+					<td style="width: 100px;">✅</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Small pool of nodes (POA)</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Large pool of nodes (Base consensus)</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Large pool of nodes (Custom consensus)</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<h3>Optimisation</h3>
+	<div class="table-responsive my-4">
+		<table class="table table-bordered table-dark">
+			<thead>
+				<tr>
+					<th scope="col" style="width: 300px;">Feature</th>
+					<th scope="col">State</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="width: 300px;">Commitments</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+				<tr>
+					<td style="width: 300px;">Transaction validity before mempool</td>
+					<td style="width: 100px;">🚧</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
 
 
-
-					<h3>Configuration</h3>
-					<div class="table-responsive my-4">
-						<table class="table table-bordered table-dark">
-							<thead>
-								<tr>
-									<th scope="col">Parameter</th>
-									<th scope="col">Location</th>
-									<th scope="col">Interpretation</th>
-									<th scope="col">Default</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									
-									<td>MILLISECS_PER_BLOCK</td>
-									<td><code>crates/runtime/src/config.rs</code></td>
-									<td>Average expected block time targeted.</td>
-									<td>6000 (ms)</td>
-								</tr>
-								<tr>
-									
-									<td>BlockHashCount</td>
-									<td><code>crates/runtime/src/config.rs</code>></td>
-									<td>Maximum number of block number to block hash mappings to keep (oldest pruned first).</td>
-									<td>2400</td>
-								</tr>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<p>The core component of Deoxys is a custom substrate pallet named <code>starknet</code> which you can find under <code>crates/pallets/starknet.</code></p>
-					<p>Let's take a closer look at the types and their default values in Deoxys's configuration.</p>
-
-					<div class="docs-code-block">
-						<pre class="shadow-lg rounded">
-					<code>// `crates/runtime/src/pallets.rs`
-					
-// ...
-					
-/// Configure the Starknet pallet in pallets/starknet.
-impl pallet_starknet::Config for Runtime {
-type RuntimeEvent = RuntimeEvent;
-type StateRoot = pallet_starknet::state_root::IntermediateStateRoot&lt;Self&gt;;
-type SystemHash = mp_starknet::crypto::hash::pedersen::PedersenHasher;
-type TimestampProvider = Timestamp;
-type UnsignedPriority = UnsignedPriority;
-}</code>
-						</pre>
-					</div>
-
-					<div class="table-responsive my-4">
-						<table class="table table-bordered table-dark">
-							<thead>
-								<tr>
-									<th scope="col">Type</th>
-									<th scope="col">Interpretation</th>
-									<th scope="col">Default</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									
-									<td>RuntimeEvent</td>
-									<td>Event type that will be emitted on extrinsics' execution.</td>
-									<td>Substrate RuntimeEvent</td>
-									
-								</tr>
-								<tr>
-									
-									<td>StateRoot</td>
-									<td>Defines how the timestamp is retrieved (used for block timestamp)</td>
-									<td><a href="https://docs.starknet.io/documentation/architecture_and_concepts/Network_Architecture/State/starknet-state/#state-commitment">Starknet State Root</a><a</td>
-									
-								</tr>
-								<tr>
-									<td>SystemHash</td>
-									<td>Hashing function used to compute commitments.</td>
-									<td>Pedersen</td>
-								</tr>
-								<tr>
-									<td>TimestampProvider</td>
-									<td>Defines how the timestamp is retrieved (used for block timestamp)</td>
-									<td><a href="https://docs.rs/pallet-timestamp/latest/pallet_timestamp/">Timestamp Pallet</a><a</td>
-								</tr>
-								
-							</tbody>
-						</table>
-					</div>
-
-					<section class="docs-section" id="Starknet">
-						<h2 class="section-heading">Starknet</h2>
-						<h3>StarkNet Features Compatibility</h3>
-					</section><!--//section-->
-
-
-
-					<h3>Block</h3>
-					<div class="table-responsive my-4">
-						<table class="table table-bordered table-dark">
-							<thead>
-								<tr>
-									<th scope="col" style="width: 300px;">Feature</th>
-									<th scope="col">State</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td style="width: 300px;">Parent block hash</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Block number</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Global State Root</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Sequencer Address</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Block timestamp</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Transaction Count</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Transaction Commitment</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Event Count</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Event Commitment</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Protocol Version</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Extra data</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					
-					<h3>Transaction</h3>
-					<div class="table-responsive my-4">
-						<table class="table table-bordered table-dark">
-							<thead>
-								<tr>
-									<th scope="col" style="width: 300px;">Feature</th>
-									<th scope="col">State</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td style="width: 300px;">Declare</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Deploy</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">Invoke</td>
-									<td style="width: 100px;">✅</td>
-								</tr>
-								<tr>
-									<td style="width: 300px;">L1 handler</td>
-									<td style="width: 100px;">🚧</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<h3>RPC</h3>
-			<div class="table-responsive my-4">
-				<table class="table table-bordered table-dark">
-					<thead>
-						<tr>
-							<th scope="col" style="width: 300px;">Feature</th>
-							<th scope="col">State</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td style="width: 300px;">starknet_getBlockWithTxHashes</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getBlockWithTxs</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getStateUpdate</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getStorageAt</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getTransactionByHash</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getTransactionByBlockIdAndIndex</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getTransactionReceipt</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getClass</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getClassHashAt</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getClassAt</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getBlockTransactionCount</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_call</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_estimateFee</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_blockNumber</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_blockHashAndNumber</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_chainId</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_pendingTransactions</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_syncing</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getEvents</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_getNonce</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_traceTransaction</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_simulateTransaction</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_traceBlockTransactions</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_addInvokeTransaction</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_addDeclareTransaction</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">starknet_addDeployAccountTransaction</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-			<h3>Decentralisation</h3>
-			<div class="table-responsive my-4">
-				<table class="table table-bordered table-dark">
-					<thead>
-						<tr>
-							<th scope="col" style="width: 300px;">Feature</th>
-							<th scope="col">State</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td style="width: 300px;">Single node</td>
-							<td style="width: 100px;">✅</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">Small pool of nodes (POA)</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">Large pool of nodes (Base consensus)</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">Large pool of nodes (Custom consensus)</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			
-			<h3>Optimisation</h3>
-			<div class="table-responsive my-4">
-				<table class="table table-bordered table-dark">
-					<thead>
-						<tr>
-							<th scope="col" style="width: 300px;">Feature</th>
-							<th scope="col">State</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td style="width: 300px;">Commitments</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-						<tr>
-							<td style="width: 300px;">Transaction validity before mempool</td>
-							<td style="width: 100px;">🚧</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-
-			<section class="docs-section" id="Contribute">
-				<h2 class="section-heading">Contribute</h2>
-				<h3>Contribute to Deoxys</h3>
-			</section><!--//section-->
-			<p>Deoxys has been built from the day 1 in the most open-source way possible, and will always follow the principles that drive the Starknet ecosystem since day 1. Anyone is free to join the KasarLabs telegram group <a href="https://t.me/kasarlabs">here</a>, come chat, ask for help, discuss anything!
+	<section class="docs-section" id="Contribute">
+		<h2 class="section-heading">Contribute</h2>
+		<h3>Contribute to Deoxys</h3>
+	</section><!--//section-->
+	
+	<p>
+		Deoxys has been built from the day 1 in the most open-source way possible, and will always follow the principles that drive the Starknet ecosystem since day 1. Anyone is free to join the KasarLabs telegram group <a href="https://t.me/kasarlabs">here</a>, come chat, ask for help, discuss anything!
+	</p>
+	
+	<div class="callout-block callout-block-success">
+		<div class="content">
+			<h4 class="callout-title">
+				<span class="callout-icon-holder me-1">
+					<i class="fas fa-thumbs-up"></i>
+				</span><!--//icon-holder-->
+				Tip
+			</h4>
+			<p>Have an idea of an ambitious hack related to one module of the client? Such as an optimization update or a fixing issue? Go ahead and create a discussion on the GitHub repo, if all good you'll be invited to present it at one community call and then start implementing it.
 			</p>
-			
-			<div class="callout-block callout-block-success">
-				<div class="content">
-					<h4 class="callout-title">
-						<span class="callout-icon-holder me-1">
-							<i class="fas fa-thumbs-up"></i>
-						</span><!--//icon-holder-->
-						Tip
-					</h4>
-					<p>Have an idea of an ambitious hack related to one module of the client? Such as an optimization update or a fixing issue? Go ahead and create a discussion on the GitHub repo, if all good you'll be invited to present it at one community call and then start implementing it
-				</div><!--//content-->
-			</div><!--//callout-block-->
+		</div><!--//content-->
+	</div><!--//callout-block-->
+	
+	<br>
+	<h3>Developers</h3>
+	<p>
+		Deoxys contributions are rewarded through <a href="https://www.onlydust.xyz/">OnlyDust</a>. What does that mean? It means that you as a developer are free to pick any open issue and submit a PR. Once the PR is merged you will be paid according to the time/difficulty of the PR. For now, the Deoxys team does not look for new contributors, but this could change in the future. If you are interested in joining the team, please reach out to us on <a href="https://t.me/kasarlabs">Telegram</a>.
+	</p>
+	
+	<br>
+	<h3>Bug Hunting</h3>
+	<p>
+		Found a bug? Please submit an <a href="https://github.com/KasarLabs/deoxys/pulls">issue</a> on GitHub so any open-source contributor can look at it and fix it (you can too!).
+	</p>
+	
+	<br>
+	<h3>Documentation</h3>
+	<p>
+		Missing anything in these docs? Spotted a typo? Please submit a PR or create an issue on <a href="https://github.com/kasarLabs/deoxys-docs/">GitHub</a>. As with everything we do, we grow together and the more eyes we have looking at it, the better it will be.
+	</p>
+	
 
-			<br>
-
-			
-			
-			<h3>Developers</h3>
-			<p>Deoxys contributions are rewarded through <a href="https://www.onlydust.xyz/">OnlyDust</a>.
-			</p>
-			<p>
-			What does that mean? It means that you as a developer are free to pick any open issue and submit a PR. Once the PR is merged you will be paid according to the time/difficulty of the PR. For now, Deoxys team does not look for new contributors, but this could change in the future. If you are interested in joining the team, please reach out to us on <a href="https://t.me/kasarlabs">Telegram</a>.
-			</p>
-			<br>
-			<h3>Bug Hunting</h3>
-		
-			<p>
-			  Found a bug? Please submit an <a href="https://github.com/KasarLabs/deoxys/pulls">issue</a> on GitHub so any open source contributor can look at it and fix it (you can too!)
-			</p>
-			<br>
-			<h3>Documentation</h3>
-			
-			<p>
-			  Missing anything in these docs? Spotted a typo? Please submit a PR or create an issue on <a href="https://github.com/kasarLabs/deoxys-docs/">GitHub</a>. As everything we do, we grow together and the more eyes we have looking at it the better it will be.
-			</p>
-			<br>
-
-			<section class="docs-section" id="FAQ">
-				<h2 class="section-heading">FAQ</h2>
-				<h3>The road towards production</h3>
-			</section><!--//section-->
-
-			
-
-			<p>
-			Deoxys is still at the development stage. So be cautious about going to production with such a system, thorough audits are highly recommended.
-			</p>
-
-			<p>
-			Deoxys aims to stand out as the fastest and most widely adopted client on Starknet. Thanks to its innovative approach, Deoxys considerably lightens the network, optimizes performance, and delivers a seamless user experience. When you choose Deoxys, you benefit from a state-of-the-art solution designed to unleash the full potential of the Starknet network and facilitate the development of high-performance, scalable decentralized applications.
-			</p>
-
-			<section class="docs-section" id="Starknode">
-				<h2 class="section-heading">Starknode</h2>
-				<h3>👽 x 💾</h3>
-			</section><!--//section-->
-			
-
-
-			<p>
-			  In the near future, we'd like to enable Starknode purchasers to run Deoxys clients on their boards. In particular, this would enable faster synchronization with the current state, and lighten the network thanks to peer-to-peer communication between Starknodes.
-			</p>
-
-
-			<section class="docs-section" id="Ecosystem">
-				<h2 class="section-heading">Ecosystem</h2>
-			</section><!--//section-->
-			<p>
-			In this section you'll find a curation of existing developments around Deoxys and the clever ways in which it can be used.
-			</p>
-			<div class="alert alert-info" role="alert">
-				Feel free to submit a PR to add your own project to this list!
-				<ul>
-					<li><strong>Starknode</strong>: a plug-n-play Deoxys node for Starknet</li>
-					</ul>
-			  </div>
-
-			    <footer class="footer">
-				    <div class="container text-center py-5">
-				        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-			            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-				        <ul class="social-list list-unstyled pt-4 mb-0">
-						    <li class="list-inline-item"><a href="https://github.com/KasarLabs"><i class="fab fa-github fa-fw"></i></a></li> 
-				            <li class="list-inline-item"><a href="https://twitter.com/kasarLabs"><i class="fab fa-twitter fa-fw"></i></a></li>
-				        </ul><!--//social-list-->
-				    </div>
-			    </footer>
-		    </div> 
-	    </div>
-    </div><!--//docs-wrapper-->
+	<section class="docs-section" id="FAQ">
+		<h2 class="section-heading">FAQ</h2>
+		<h3>The road towards production</h3>
+	</section><!--//section-->
+	
+	<p>
+		Deoxys is still at the development stage. So be cautious about going to production with such a system; thorough audits are highly recommended.
+	</p>
+	
+	<p>
+		Deoxys aims to stand out as the fastest and most widely adopted client on Starknet. Thanks to its innovative approach, Deoxys considerably lightens the network, optimizes performance, and delivers a seamless user experience. When you choose Deoxys, you benefit from a state-of-the-art solution designed to unleash the full potential of the Starknet network and facilitate the development of high-performance, scalable decentralized applications.
+	</p>
+	
+	<section class="docs-section" id="Starknode">
+		<h2 class="section-heading">Starknode</h2>
+		<h3>👽 x 💾</h3>
+	</section><!--//section-->
+	
+	<p>
+		In the near future, we'd like to enable Starknode purchasers to run Deoxys clients on their boards. In particular, this would enable faster synchronization with the current state, and lighten the network thanks to peer-to-peer communication between Starknodes.
+	</p>
+	
+	<section class="docs-section" id="Ecosystem">
+		<h2 class="section-heading">Ecosystem</h2>
+	</section><!--//section-->
+	
+	<p>
+		In this section you'll find a curation of existing developments around Deoxys and the clever ways in which it can be used.
+	</p>
+	
+	<div class="alert alert-info" role="alert">
+		Feel free to submit a PR to add your own project to this list!
+		<ul>
+			<li><strong>Starknode</strong>: a plug-n-play Deoxys node for Starknet</li>
+		</ul>
+	</div>
+	
+	<footer class="footer">
+		<div class="container text-center py-5">
+			<!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com. Thank you for your support. :) */-->
+			<small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+			<ul class="social-list list-unstyled pt-4 mb-0">
+				<li class="list-inline-item"><a href="https://github.com/KasarLabs"><i class="fab fa-github fa-fw"></i></a></li>
+				<li class="list-inline-item"><a href="https://twitter.com/kasarLabs"><i class="fab fa-twitter fa-fw"></i></a></li>
+			</ul><!--//social-list-->
+		</div>
+	</footer>
+	
    
        
     <!-- Javascript -->          
