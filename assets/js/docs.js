@@ -80,6 +80,13 @@ sidebarLinks.forEach((sidebarLink) => {
 });
 
 
+/* ===== Sidebar text highlighting ====== */
+/*  Note: You need to include smoothscroll.min.js (smooth scroll behavior polyfill) on the page to cover some browsers */
+
+
+
+
+
 /* ===== Gumshoe SrollSpy ===== */
 /* Ref: https://github.com/cferdinandi/gumshoe  */
 // Initialize Gumshoe

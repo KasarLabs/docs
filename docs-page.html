@@ -86,16 +86,36 @@
 					<li class="nav-item"><a class="nav-link scrollto" href="#Architecture">Architecture</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Setup-Deoxys">Setup Deoxys</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Configuration">Configuration</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#Starknet">Starknet</a>
-					<div id="starknet-submenu" class="collapse">
-							<a class="nav-link scrollto" href="#starknet_addDeclareTransaction">starknet_addDeclareTransaction</a>
-							</div></li>
+					<li class="nav-item">
+						<a class="nav-link scrollto" data-toggle="collapse" href="#starknet-submenu">
+							Starknet <i class="fas fa-chevron-down"></i> <!-- The chevron icon as the toggle symbol -->
+						</a>
+
+						<div id="starknet-submenu" class="collapse">
+							<a class="nav-link scrollto submenu-link" href="#StarknetFeatureCompatibility">Starknet feature compatibility</a>
+						</div>
+
+						<div id="starknet-submenu" class="collapse">
+							<a class="nav-link scrollto submenu-link" href="#starknet_addDeclareTransaction">starknet_addDeclareTransaction</a>
+						</div>
+					</li>
+					
+					
+
+					<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
 				    <li class="nav-item"><a class="nav-link scrollto" href="#Contribute">Contribute</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#FAQ">FAQ</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Starknode">Starknode</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Ecosystem">Ecosystem</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Media">Media</a></li>
 
+
+					<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+					<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+					<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+					<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+					<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 
 				    
@@ -471,6 +491,12 @@ cargo</span> <span class="hljs-string">build --release</span></code></pre>
 		<h2 class="section-heading">Starknet</h2>
 		<h3>StarkNet Features Compatibility</h3>
 	</section><!--//section-->
+
+	<section class="docs-section" id="StarknetFeatureCompatibility">
+		<h2 class="section-heading">Starknet feature compatibility</h2>
+	</section><!--//section-->
+
+
 	
 	<h3>Block</h3>
 	<div class="table-responsive my-4">
@@ -736,6 +762,15 @@ cargo</span> <span class="hljs-string">build --release</span></code></pre>
 			<h3 class="section-heading">starknet_addDeclareTransaction</h3>
 			<p>Insert API information here</p>
 	</section>
+
+	<!--Ok, here is where you put the API-->
+
+	
+
+
+
+
+
 	
 
 
