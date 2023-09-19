@@ -373,8 +373,7 @@ git clone</span> <span class="hljs-string">https://github.com/KasarLabs/deoxys</
 				<!--//docs-code-block-->
 	
 				<p>Then let's build the dependencies in <code>release</code> mode</p>
-
-<pre><code>cd</span> &lt;<span class="hljs-string">deoxys</span>&gt;
+<pre><code>cd deoxys
 cargo</span> <span class="hljs-string">build --release</span></code></pre>
 
 
@@ -383,14 +382,62 @@ cargo</span> <span class="hljs-string">build --release</span></code></pre>
 				<p>This command will start the Deoxys client which will begin the synchronization with the Starknet network automatically:</p>
 				
 				<pre><code>cargo run --release -- --dev --sealing=manual</code></pre>
-
-
+				<p>If everything works correctly, we can go to the next step and create our peer to peer network!</p>
 			</li>
 	
+			
+			
 			<li class="step">
-				<h4>3. Create your peer to peer network</h4>
+				<h4>3. Sync deoxys</h4>
+<pre><code>cargo run -- \
+  --madara-path /tmp/boot \
+  --validator \
+  --rpc-cors=all \
+  --rpc-external \
+  --rpc-methods=unsafe \
+  --port 30333 \
+  --rpc-port 9944 \
+  --name deoxys-boot \
+  --telemetry-url "wss://deoxys.kasar.io/submit/ 0" \
+  --dev \
+  --sealing manual
+</code></pre>
+	<p>This command syncs Starknet from block 0</p>
+	<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 350px; text-align: center;">
+		<img src="https://i.ibb.co/jJhjGLc/Deoxys-Sync-Long.gif" alt="Kasar-GUI-2" style="border: none; max-width: 100%; border-radius: 5px;">
+		<div style="margin-top: 10px;">This is how your terminal looks like when entering the command</div>
+	</div>
 			</li>
+			<div class="callout-block callout-block-success">
+				<div class="content">
+					<h4 class="callout-title">
+						<span class="callout-icon-holder me-1">
+							<i class="fas fa-info-circle"></i>
+						</span><!--//icon-holder-->
+						Let's break down the code
+					</h4>
+					<p> 
+						<ul>
+							<li><code>--madara-path /tmp/boot \</code>: The filesystem path.</li>
+							<li><code>--validator \</code>: The type of node you are running, a validator (or authority node) establishes direct communication with the sequencer. If this command is removed, you will run a standard Deoxys full node.</li>
+							<li><code>--rpc-cors=all \</code>: The node's Remote Procedure Call (RPC) configuration, set to 'all' allowing any website or service from any domain to interact with the node's RPC.</li>
+							<li><code>--rpc-external \</code>: The RPC interface of the node listens for connections not just from the local machine.</li>
+							<li><code>--rpc-methods=unsafe \</code>: Here you provide broader access to the functionality of your node over the RPC interface. This can be useful for development, debugging, or administration purposes, where you might need more control over the node.</li>
+							<li><code>--port 30333 \</code>: The network port on which the node will listen for peer-to-peer connections. Deoxys inherits Substrate mechanism, making '30333' the default P2P port.</li>
+							<li><code>--rpc-port 9944 \</code>: The port number for the node's RPC interface. We used '--rpc-external', meaning that the RPC interface can be accessed from outside the local machine, then external clients will connect to the node's RPC interface using this port (9944 in this case). Port 9944 is a personal port.</li>
+							<li><code>--name deoxys-boot \</code>: The name of the node. You can pick any name, for example <code>--name Ultimate-Mewtwo \</code>.</li>
+							<li><code>--telemetry-url "wss://deoxys.kasar.io/submit/ 0" \</code>: This command specifies the endpoint to which the node will send its telemetry data. 'wss://deoxys.kasar.io/submit/ 0' is the specific URL and endpoint to which the telemetry data will be sent. </li>
+							<li><code>--sealing manual</code>: The process of finalizing a block so that it can be added to the blockchain. The command will not be used in the long-term.</li>
+						
+						</ul>
+						
+					</p>
+				</div><!--//content-->
+			</div><!--//callout-block-->
+			
 		</ol>
+
+		
 	</body>
 </section>	
 
