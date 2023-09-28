@@ -1,0 +1,76 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/account-abstraction"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/arbitrum"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/astar"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/components"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/debug"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/ethereum"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/functions"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/nft"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/notify"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/optimism"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/polygon-pos"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/polygon-zkevm"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/scripts"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/sdk"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/Solana"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/starknet"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/token"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/Trace"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/transact"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/Transaction-Receipts"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/transfers"
+		},
+		{
+			"path": "../Desktop/docs-openapi-specs/Unstoppable"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "CoderDocs-Theme"
+	}
+}

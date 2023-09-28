@@ -85,23 +85,11 @@
 					<li class="nav-item"><a class="nav-link scrollto" href="#Prerequisites">Prerequisites</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Architecture">Architecture</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Setup-Deoxys">Setup Deoxys</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#Use-Deoxys">Use Deoxys</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Configuration">Configuration</a></li>
-					<li class="nav-item">
-						<a class="nav-link scrollto" data-toggle="collapse" href="#starknet-submenu" onclick="event.preventDefault();">
-							Starknet <i class="fas fa-chevron-down"></i>
-						</a>
-					
-						<div id="starknet-submenu" class="collapse">
-							<a class="nav-link scrollto submenu-link" href="#StarknetFeatureCompatibility">Starknet feature compatibility</a>
-							<a class="nav-link scrollto submenu-link" href="#starknetAPI">Starknet API</a>
-							<a class="nav-link scrollto submenu-link" href="#ethereumComparison">Ethereum Comparison</a>
-						</div>
-					</li>
-					
-					
-					
-
-
+					<li class="nav-item"><a class="nav-link scrollto" href="#StarknetFeatureCompatibility">Starknet feature compatibility</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#starknetAPI">Starknet API</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#ethereumComparison">Ethereum Comparison</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#Contribute">Contribute</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#FAQ">FAQ</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#Starknode">Starknode</a></li>
@@ -135,13 +123,17 @@
 
 	<!--GIF implementation as a cover image-->
 
+	<header class="docs-header">
+		<h1 class="docs-heading">Deoxys <span class="docs-time">Last updated: 2019-06-01</span></h1>
+		<section class="docs-intro">
+		</section><!--//docs-intro-->
 
 
 
 
     <section class="docs-section" id="Introduction">
         <h2 class="section-heading">Introduction</h2>
-        <p>Deoxys is a Starknet full node client implementation based on Substrate and powered by Rust. It unlocks the full potential of full nodes on Starknet. It's goal is to substantially decrease sync time for Starknet full nodes. </p>
+        <p>Deoxys is a Starknet full node client implementation based on Substrate and powered by Rust. It unlocks the full potential of full nodes on Starknet. It's goal is to substantially decrease synchronization time for Starknet full nodes. </p>
     </section>
 
     <section class="docs-section">
@@ -367,7 +359,8 @@
 				<div class="docs-code-block">
 
 <pre><code>cd</span> &lt;<span class="hljs-string">your-folder</span>&gt;
-git clone</span> <span class="hljs-string">https://github.com/KasarLabs/deoxys</span></code></pre>
+git clone</span> <span class="hljs-string">https://github.com/KasarLabs/deoxys</span>
+</code></pre>
 						
 				</div>
 				<!--//docs-code-block-->
@@ -382,6 +375,12 @@ cargo</span> <span class="hljs-string">build --release</span></code></pre>
 				<p>This command will start the Deoxys client which will begin the synchronization with the Starknet network automatically:</p>
 				
 				<pre><code>cargo run --release -- --dev --sealing=manual</code></pre>
+				<div style="text-align: center; padding: 10px;">
+					<img src="https://i.ibb.co/XtSJfYz/Screenshot-2023-09-26-at-19-16-36.png" alt="Kasar-GUI-2" style="border: none; max-width: 100; border-radius: 5px;">
+					<p style="margin-top: 10px; font-weight: bold; font-size: 13px;">The terminal should display output similar to this</p>
+				</div>
+				
+			
 				<p>If everything works correctly, we can go to the next step and create our peer to peer network!</p>
 			</li>
 	
@@ -402,11 +401,12 @@ cargo</span> <span class="hljs-string">build --release</span></code></pre>
   --dev \
   --sealing manual
 </code></pre>
-	<p>This command syncs Starknet from block 0</p>
-	<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 350px; text-align: center;">
-		<img src="https://i.ibb.co/jJhjGLc/Deoxys-Sync-Long.gif" alt="Kasar-GUI-2" style="border: none; max-width: 100%; border-radius: 5px;">
-		<div style="margin-top: 10px;">This is how your terminal looks like when entering the command</div>
+	<p>This command synchronizes Starknet from block 0</p>
+	<div style="text-align: center; padding: 10px;">
+		<img src="https://i.ibb.co/C7Lt7mm/Screenshot-2023-09-26-at-19-21-49.png" alt="Kasar-GUI-2" style="border: none; max-width: 100%; border-radius: 5px;">
+		<p style="margin-top: 10px; font-weight: bold; font-size: 13px;">The terminal should display output similar to this</p>
 	</div>
+
 			</li>
 			<div class="callout-block callout-block-success">
 				<div class="content">
@@ -414,7 +414,7 @@ cargo</span> <span class="hljs-string">build --release</span></code></pre>
 						<span class="callout-icon-holder me-1">
 							<i class="fas fa-info-circle"></i>
 						</span><!--//icon-holder-->
-						Let's break down the code
+						Let's break down the command
 					</h4>
 					<p> 
 						<ul>
@@ -433,13 +433,88 @@ cargo</span> <span class="hljs-string">build --release</span></code></pre>
 						
 					</p>
 				</div><!--//content-->
+				
 			</div><!--//callout-block-->
-			
+			<li class="step">
+				<h4>4. Launch the desktop app</h4>
+				<p>Next, clone this repo into the file you just used above</p>
+				<pre><code>
+cd your folder
+git clone https://github.com/KasarLabs/deoxys-app
+				</code></pre>
+				<p>Now we run <code>npm</code></p>
+				<pre><code>
+npm install
+npm run start
+									</code></pre>
 		</ol>
-
 		
 	</body>
 </section>	
+
+
+<body>
+	<section class="docs-section" id="Use-Deoxys">
+		<h2 class="section-heading">Use Deoxys</h2>
+		<p>This section explains how to interact with the Deoxys-app.</p>
+
+
+	<br>
+	<h3>Get Started</h3>
+			<li class="step">
+		<h4>1. Run the app and pick your Deoxys</h4>
+		<p>After running <code>npm</code> the Deoxys desktop app will launch. You have the choice of running 3 types of Deoxys nodes</p>
+		<ol>
+			<li><strong>Authority node:</strong> also called the Deoxys boot-node, this node retrieves blocks from the Starknet sequencer starting from the genesis block. Hence, synchronization is estimated at 24 hours</li>
+			<li><strong>Full node:</strong> these nodes connect to the authority node and import the synched data. Synchronization is estimated at 5 minutes</li>
+			<li><strong>Light node:</strong> this node doesn't keep a complete copy of Starknet. Instead, it only synchronizes with blocks from the point of its activation onward, disregarding any blocks prior to its launch</li>
+		</ol>
+		<div style="text-align: center; padding: 10px;">
+			<img src="https://i.ibb.co/K6zGXp3/Screenshot-2023-09-26-at-14-37-31-copy.png" alt="Kasar-GUI-2" style="border: none; max-width: 100%; border-radius: 5px;">
+			<p style="margin-top: 10px; font-weight: bold; font-size: 13px;">Selecting your Deoxys node</p>
+		</div>
+		
+				</li>
+
+			<li class="step">
+				<h4>2. Features on Deoxys</h4>
+				<ol>
+					<li>See the logs of the node in realtime</li>
+					<li>Install dockerized/binary apps that allow you to interact with your node.</li>
+					<div style="text-align: center; padding: 10px;">
+						<img src="https://i.ibb.co/Jj1zKM5/Screenshot-2023-09-26-at-19-35-43.png" alt="Kasar-GUI-2" style="border: none; max-width: 70%; border-radius: 5px;">
+						<p style="margin-top: 10px; font-weight: bold; font-size: 13px;">Selecting your Deoxys node</p>
+					</div>
+				</ol>
+
+				</li>
+
+
+		<br>
+		<h4>The benefits of the Deoxys  architecture</h4>
+		<p>
+			The Deoxys architecture offers several significant benefits for the Starknet:
+
+			<ol>
+    	<li><strong>Efficient Query Mechanism:</strong> Once Deoxys is updated to the latest block issued by the sequencer, it can efficiently query the sequencer for new blocks. This ensures real-time updates and reduced lag.</li>
+
+    	<li><strong>Double Verification for Accuracy:</strong> With the L1 verification, Ethereum is responsible for validating Starknet transactions. Deoxys then cross-checks these transactions to ensure the L2 state is valid. This dual verification process guarantees the accuracy of the network's state, ensuring that nodes aren't misinformed about the network's status.</li>
+
+   	 	<li><strong>P2P Synchronization:</strong> The Peer-to-Peer (P2P) network is a powerful feature within Deoxys. In this network, all nodes are equal, allowing them to function both as servers and clients. This means every node can request and supply services to others.</li>
+
+		<li><strong>Rapid Full Node Syncing:</strong> Introducing a P2P network to Starknet has revolutionized its syncing speed. Since full nodes are constantly communicating and sharing state information, synchronization time is vastly reduced. This ensures that if you operate a full node, you can synchronize rapidly due to nearby nodes already having synced data from the boot node.</li>
+
+		<li><strong>Innovative P2P Implementation:</strong> The full node P2P network is a groundbreaking addition to Starknet, marking a stride towards a consensus implementation.</li>
+
+		<li><strong>Impressive Synchronization Times:</strong> The synchronization time between the sequencer and the boot node with Deoxys is less than 25 hours, and even more impressively, the synchronization between full nodes and boot nodes takes less than 5 minutes.
+
+		</ol>
+		</p>
+
+		</li>
+
+
+
 
 	<section class="docs-section" id="Configuration">
 		<h2 class="section-heading">Configuration</h2>
@@ -804,7 +879,6 @@ cargo</span> <span class="hljs-string">build --release</span></code></pre>
 	
 	<!-- Including the Swagger UI Styles and Script from a CDN -->
 	<link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@latest/swagger-ui.css"> 
-	<script src="https://unpkg.com/swagger-ui-dist@latest/swagger-ui-bundle.js"></script>	<!-- remove this to avoid the weird headings-->
 	
 	<!-- Container for the Swagger UI to render into -->
 	<div id="swagger-ui"></div>
